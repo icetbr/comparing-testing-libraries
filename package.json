@@ -1,0 +1,58 @@
+{
+  "name": "comparing-testing-libraries",
+  "version": "1.0.0",
+  "description": "Comparing the experience of using different testing libraries in javascript",
+  "keywords": [
+    "ava"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "testMocha": "mocha test/employeeHapiTest.js",
+    "testJestWatch": "jest --watch test/employeeJest.test.js",
+    "testJest": "jest test/employeeJest.test.js",
+    "testHapi": "lab test/employeeHapiTest.js",
+    "testHapiNodemon": "nodemon lab --silence test/employeeHapiTest.js",
+    "testAva": "ava test/employeeAvaTest.js",
+    "testTape": "tape ./test/employeeTapeTest.js",
+    "testTapeNodemon": "nodemon tape ./test/employeeTapeTest.js",
+    "testTapeNodemonSummary": "nodemon tape ./test/employeeTapeTest.js | tap-summary",
+    "testZora": "echo 'process.exit(0);' | node -r ./test/employeeZoraTest.js",
+    "testZoraNodemon": "nodemon -r ./test/employeeZoraTest.js",
+    "testZoraNodemonSummary": "nodemon -r ./test/employeeZoraTest.js | tap-difflet",
+    "testaZoraTapSummary": "echo 'process.exit(0);' | node -r ./test/employeeZoraTest.js | tap-summary",
+    "testZoraSingle": "node ./test/employeeZoraTest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icetbr/comparing-testing-libraries.git"
+  },
+  "author": "icetbr",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/icetbr/comparing-testing-libraries/issues"
+  },
+  "homepage": "https://github.com/icetbr/comparing-testing-libraries#readme",
+  "devDependencies": {
+    "@hapi/code": "^7.0.0",
+    "@hapi/lab": "^21.0.0",
+    "ava": "^2.4.0",
+    "jest": "^24.9.0",
+    "jest-silent-reporter": "^0.1.2",
+    "mocha": "^6.2.2",
+    "nodemon": "^2.0.2",
+    "tap-difflet": "^0.7.2",
+    "tap-summary": "^4.0.0",
+    "tape": "^4.12.0",
+    "zora": "^3.1.8"
+  },
+  "jest": {
+    "reporters": [
+      [
+        "jest-silent-reporter",
+        {
+          "useDots": true
+        }
+      ]
+    ]
+  }
+}
