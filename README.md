@@ -37,16 +37,16 @@ time for i in {1..10}; do ./node_modules/ava/cli.js test/employeeAvaTest.js; don
 
 ## hapi
 
-time for i in {1..10}; do ./node_modules/@hapi/lab/bin/lab test/employeeHapiTest.js; done # tape 4,069
+time for i in {1..10}; do ./node_modules/@hapi/lab/bin/lab test/employeeHapiTest.js; done # hapi 4,069
 node_modules/nodemon/bin/nodemon.js lab ./test/employeeHapiTest.js # nodemon slighty slower then tape
 
 ## jest
-time for i in {1..10}; do ./node_modules/jest/bin/jest.js test/employeeJest.test.js; done # tape 15,153
+time for i in {1..10}; do ./node_modules/jest/bin/jest.js test/employeeJest.test.js; done # jest 15,153
 ## no nodemon, but native --watch is as fast as hapi
 
 ## mocha
 
-time for i in {1..10}; do ./node_modules/mocha/bin/mocha test/employeeMochaTest.js; done # tape 4,069
+time for i in {1..10}; do ./node_modules/mocha/bin/mocha test/employeeMochaTest.js; done # mocha 1,762
 
  ```
 

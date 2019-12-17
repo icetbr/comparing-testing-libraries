@@ -10,7 +10,7 @@ describe('employee', () => {
     const actual = await employee.find();
 
     const expected = [data];
-    assert.equal(actual, expected);
+    assert.deepEqual(actual, expected);
     await employee.removeAll();
   });
 
