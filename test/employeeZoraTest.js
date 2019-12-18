@@ -20,7 +20,7 @@ test('employee', async t => {
 
     const actual = await employee.find();
 
-    const expected = [{ ...data, name: 'John' }];
+    const expected = [{ ...data, name: 'John1' }];
     t.equal(actual, expected);
     await employee.removeAll();
   });
