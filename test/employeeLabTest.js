@@ -20,7 +20,7 @@ describe('employee', () => {
     await employee.removeAll();
   });
 
-  it('insert2 saves the data to the database', async () => {
+  it.only('insert2 saves the data to the database', async () => {
     const data = { name: 'John', email: 'john@test.com', description: 'average height' };
     await employee.insert(data);
 

@@ -1,5 +1,10 @@
 Comparing the experience of using different testing libraries in javascript
 
+## TODO
+- migrate npm scripts to makefile
+- compare speed when many tests
+- compare assert libs
+
 ## Desired features
 - fast
 - easy toggle serial/parallel tests
@@ -44,7 +49,7 @@ tape     |  0,86
 tap      |  5,07
 tapeTap  |  0,99
 ava      |  9,02
-hapi     |  3,61
+lab      |  3,61
 jest     | 15,15
 mocha    |  1,76
 
@@ -65,9 +70,9 @@ time for i in {1..10}; do npm run testZora; done # tapeNpm 2,658
 
 node_modules/nodemon/bin/nodemon.js tape ./test/employeeTapeTest.js # nodemon slighty slower then zora
 
-## hapi
-time for i in {1..10}; do ./node_modules/@hapi/lab/bin/lab test/employeeHapiTest.js; done # hapi 3,616
-node_modules/nodemon/bin/nodemon.js lab ./test/employeeHapiTest.js # nodemon slighty slower then tape
+## lab
+time for i in {1..10}; do ./node_modules/@hapi/lab/bin/lab test/employeeLabTest.js; done # lab 3,616
+node_modules/nodemon/bin/nodemon.js lab ./test/employeeLabTest.js # nodemon slighty slower then tape
 
 ## ava
 time for i in {1..10}; do ./node_modules/ava/cli.js --serial test/employeeAvaTest.js; done # ava 9,062
