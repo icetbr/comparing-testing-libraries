@@ -40,12 +40,13 @@
     "url": "https://github.com/icetbr/comparing-testing-libraries/issues"
   },
   "homepage": "https://github.com/icetbr/comparing-testing-libraries#readme",
-  "devDependencies": {
+  "dependencies": {
     "@hapi/code": "^7.0.0",
     "@hapi/lab": "^21.0.0",
     "ava": "^2.4.0",
     "chai": "^4.2.0",
     "chokidar-cli": "^2.1.0",
+    "even-more-min": "^1.0.1",
     "expect": "^24.9.0",
     "jest": "^24.9.0",
     "jest-silent-reporter": "^0.1.2",
@@ -60,5 +61,8 @@
     "tape": "^4.12.0",
     "unexpected": "^11.10.0",
     "zora": "^3.1.8"
+  },
+  "devDependencies": {
+    "mocha-clearscreen-reporter": "^1.0.1"
   }
 }
