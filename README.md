@@ -76,7 +76,7 @@ Examples
 
 **Zora**
 - interesting idea, it is "just" javascript
-- fast no mather how you run it
+- fast no matter how you run it
 - paralell tests by default, it takes extra work to make then synchronous, bad for integration tests
 - weird integrations with nodemon that makes it sometimes hang
 - the tap reporters I like are old and unmaintained
