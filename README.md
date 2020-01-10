@@ -51,11 +51,15 @@ Examples
 **Jest**
 - very active development
 - too many lines of useless output when in watch mode
+- very user focused, readability in mind (ex: many usefull assertions)
 - bail doesn't work for tests in the same file (bug)
+- problems identifying test files (ex: cammel case userTest.js vs user.test.js)
 
 **Mocha**
 - very active development
 - my flicker free dream come true!
+- questionable choices: tests don't force exit when done
+- stack trace clean level: 1 (minor details)
 
 - **Ava**
 - very active development
@@ -68,6 +72,8 @@ Examples
 - somewhat active development
 - best (not by much) equal diff
 - makes sense to use if you're using **hapi** (I am)
+- stack trace clean level: 2 (some internal calls)
+- flicker speed: has some delay
 
 **Tape**
 - no support for async (use tape-promise or other)
@@ -101,7 +107,7 @@ Examples
 | lab      |  7 |
 | ava      |  6 |
 
-## From ground up
+## Cold start
 
 - the time to run 10 tests from the ground up
 - **don't be fooled by the numbers**, these shouldn't be an issue for most people

@@ -8,7 +8,7 @@ describe('employee', () => {
 
     const actual = await employee.find();
 
-    const expected = [data];
+    const expected = process.NODE_ENV.error ? [{ ...data, name: 'John1' }] : [data];
     expect(actual).toEqual(expected);
     await employee.removeAll();
   });
