@@ -1,4 +1,4 @@
-  #/bin/sh
+#!/usr/bin/env sh
 
 nodemon() { ./node_modules/nodemon/bin/nodemon.js -x "printf \"\033c\";${!1}"; }
 # nodemon() { ./node_modules/nodemon/bin/nodemon.js -x "printf \"\033c\";$($1)"; }
@@ -32,12 +32,15 @@ avaWatch="$ava --watch"
 if [ $1 == "perf" ]; then
   ## ./run.sh perf jest
   time for i in {1..10}; do ${!2}; done
+
+# if doesn't have 2nd param
 elif [ -z "$2" ]; then
   ## ./run.sh jestWatch
   # ${!1}
   # ${zora}
-  mode=equalError eval ${!1}
+  mode=equalError eval node ${!1}
   # mode=equalError $1
+
 else
   ## ./run.sh nodemon lab
   mode=equalError $1 $2
