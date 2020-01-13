@@ -1,0 +1,30 @@
+
+mocha
+real	0m1,722s
+
+jest
+real	0m9,527s
+
+ava
+real	0m8,063s
+
+lab
+real	0m3,600s
+
+tape
+real	0m0,704s
+
+tap
+real	0m5,398s
+
+tapeReport
+real	0m1,266s
+
+zora
+real	0m0,520s
+
+zoraReport
+real	0m1,120s
+
+zoraSingle
+real	0m0,370s

@@ -10,6 +10,8 @@ const _ = require('lodash');
 
 Code.settings.truncateMessages = true;
 
+// using global chai as it seems to be the most popular assertion lib for mocha
+
 describe('employee', () => {
 
   it('insert saves the data to the database', async () => {
@@ -17,9 +19,18 @@ describe('employee', () => {
     await employee.insert(data);
 
     const actual = await employee.find();
-    const expected = process.env.mode === 'equalError' ? [{ ...data, name: 'John1' }] : [data];
-    // const expected = [data];
-    assert.deepEqual(actual, expected);
+
+    const expected = [{ ...data, name: 'John1' }];
+    const expects = {
+      assert: () => assert.deepEqual(actual, expected),
+      chai: () => chai.expect(actual).to.deep.equal(expected),
+      should: () => actual.should.equal(expected),
+      jest: () => expectJest(actual).toEqual(expected),
+      lab: () => expect(actual).to.equal(expected),
+      unexpect: () => unexpect(actual, 'to equal', expected),
+    };
+
+    expects[process.env.mode]();
     await employee.removeAll();
   });
 
@@ -47,22 +58,6 @@ describe('employee', () => {
   //   // const metadata =
   //   // expect(Object.keys(savedEmployees[0]).filter());
   //   // expect([savedEmployees[0].dti, savedEmployees[0]._id]).filter())
-  // });
-
-  // it.only('insert2 saves the data to the database', async () => {
-  //   const data = { name: 'John', email: 'john@test.com', description: 'average height' };
-  //   await employee.insert(data);
-
-  //   const actual = await employee.find();
-
-  //   const expected = [{ ...data, name: 'John2' }];
-  //   // assert.deepEqual(actual, expected);
-  //   chai.expect(actual).to.deep.equal(expected);
-  //   // actual.should.equal(expected);
-  //   // expectJest(actual).toEqual(expected);
-  //   // expect(actual).to.equal(expected);
-  //   // unexpect(actual, 'to equal', expected);
-  //   await employee.removeAll();
   // });
 
 });

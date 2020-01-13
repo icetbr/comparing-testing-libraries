@@ -5,8 +5,19 @@ Comparing the developer experience of using different testing libraries in javas
 2) npm install
 3) pick your target
 
-Examples
+**Formats**
 ```
+[mode=(equalError|exception)] ./run.sh libName
+[mode=(equalError|exception)] ./run.sh nativeWatcherName
+[mode=(equalError|exception)] ./run.sh watcherName libName
+[mode=(equalError|exception)] ./run.sh perf libName
+mode=assertName ./run.sh mocha
+```
+
+**Examples**
+```sh
+./run.sh mocha
+./run.sh mode=exception mocha
 ./run.sh mochaWatch
 ./run.sh nodemon lab
 ./run.sh chockidar lab
@@ -49,6 +60,11 @@ Examples
   - currently I don't need these
 
 **Jest**
+- initial configuration: hard if not using defaults
+  - needed to include testEnvironment
+    - huge performance cost otherwise (~80% on cold start tests)
+  - needed to include testRegex
+    - didn't recognize my command line pattern
 - very active development
 - too many lines of useless output when in watch mode
 - very user focused, readability in mind (ex: many usefull assertions)
@@ -111,56 +127,19 @@ Examples
 
 - the time to run 10 tests from the ground up
 - **don't be fooled by the numbers**, these shouldn't be an issue for most people
-  - 99% of the time people run tests in a batch, not like this
+  - 99% of the time people should be runnning tests in a batch, not like this
 - checkout [zora's][https://github.com/lorenzofox3/zora] more interesting yet still somewhat irrelevant benchmark
 - if you have an interesting benchmark, please send me the link
+- **ava** and **jest** have an aditional large start cost when first run
+- `./perf.sh` to run all
 
-zora     |  0,52
-zoraTap  |  0,86
-tape     |  0,86
-tap      |  5,07
-tapeTap  |  0,99
-ava      |  9,02
-lab      |  3,61
-jest     | 15,15
-mocha    |  1,76
-
-
-
-```sh
-
-## zora
-time for i in {1..10}; do echo 'process.exit(0);' | node -r ./test/employeeZoraTest.js; done # zora 0,524
-time for i in {1..10}; do npm run testZora; done # zoraNpm 2,680
-node_modules/nodemon/bin/nodemon.js -r ./test/employeeZoraTest.js # nodemon nearly instant
-
-time for i in {1..10}; do echo 'process.exit(0);' | node -r ./test/employeeZoraTest.js | tap-summary; done # zoraTap 0,861
-time for i in {1..10}; do node ./test/employeeZoraTest.js; done # zoraSingle 0,554
-
-## tape
-time for i in {1..10}; do ./node_modules/tape/bin/tape ./test/employeeTapeTest.js; done # tape 0,869
-time for i in {1..10}; do ./node_modules/tape/bin/tape ./test/employeeTapeTest.js | tap-summary; done # tapeTap 0,997
-time for i in {1..10}; do npm run testZora; done # tapeNpm 2,658
-
-node_modules/nodemon/bin/nodemon.js tape ./test/employeeTapeTest.js # nodemon slighty slower then zora
-
-## lab
-time for i in {1..10}; do ./node_modules/@hapi/lab/bin/lab test/employeeLabTest.js; done # lab 3,616
-node_modules/nodemon/bin/nodemon.js lab ./test/employeeLabTest.js # nodemon slighty slower then tape
-
-## ava
-time for i in {1..10}; do ./node_modules/ava/cli.js --serial test/employeeAvaTest.js; done # ava 9,062
-## no nodemon, but native --watch very fast (slower then hapi)
-
-## jest
-time for i in {1..10}; do ./node_modules/jest/bin/jest.js test/employeeJest.test.js; done # jest 15,153
-## no nodemon, but native --watch is as fast as hapi
-
-## mocha
-time for i in {1..10}; do ./node_modules/mocha/bin/mocha test/employeeMochaTest.js; done # mocha 1,762
-
-## tap
-time for i in {1..10}; do ./node_modules/tap/bin/run.js --no-coverage --reporter silent ./test/employeeTapTest.js; done # tape 5,076
-
- ```
-
+| mocha      | 1,72 |
+| jest       | 9,52 |
+| ava        | 8,06 |
+| lab        | 3,60 |
+| tape       | 0,70 |
+| tap        | 5,40 |
+| tapeReport | 1,26 |
+| zora       | 0,52 |
+| zoraReport | 1,12 |
+| zoraSingle | 0,37 |

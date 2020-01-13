@@ -3,7 +3,7 @@ let db = [];
 module.exports = {
 
   async insert(data) {
-    // throw new Error('Testing');
+    if (process.env.mode === 'exception') throw new Error('Testing');
     db.push(data);
   },
 
