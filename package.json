@@ -52,6 +52,8 @@
     "jest-silent-reporter": "^0.1.2",
     "lodash": "^4.17.15",
     "mocha": "^6.2.2",
+    "mocha-parallel-tests": "^2.2.2",
+    "mockdate": "^2.0.5",
     "nodemon": "^2.0.2",
     "onchange": "^6.1.0",
     "should": "^13.2.3",

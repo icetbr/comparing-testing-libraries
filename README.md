@@ -11,13 +11,14 @@ Comparing the developer experience of using different testing libraries in javas
 [mode=(equalError|exception)] ./run.sh nativeWatcherName
 [mode=(equalError|exception)] ./run.sh watcherName libName
 [mode=(equalError|exception)] ./run.sh perf libName
-mode=assertName ./run.sh mocha
+mode=assertName ./run.sh mochaAssert
 ```
 
 **Examples**
 ```sh
 ./run.sh mocha
-./run.sh mode=exception mocha
+mode=exception ./run.sh mocha
+mode=jest ./run.sh mochaAssert
 ./run.sh mochaWatch
 ./run.sh nodemon lab
 ./run.sh chockidar lab
@@ -70,6 +71,12 @@ mode=assertName ./run.sh mocha
 - very user focused, readability in mind (ex: many usefull assertions)
 - bail doesn't work for tests in the same file (bug)
 - problems identifying test files (ex: cammel case userTest.js vs user.test.js)
+- poluted diff result, impossible to have inline diff
+- ridiculously slow cold start
+- Jest doesn't always try to run test suites in parallel
+  - weird errors when improper mocking
+- expect doesn't accept error messages
+- asymetricMatchers produce output structure different then equals
 
 **Mocha**
 - very active development
@@ -77,7 +84,7 @@ mode=assertName ./run.sh mocha
 - questionable choices: tests don't force exit when done
 - stack trace clean level: 1 (minor details)
 
-- **Ava**
+**Ava**
 - very active development
 - no support for nested tests
 - parallel by default, but can use --serial cli
@@ -116,6 +123,8 @@ mode=assertName ./run.sh mocha
 - results based on observation using the fastest of the watchers
 - 10 is instant feedback
 
+|          |    |
+|----------|----|
 | mocha    | 10 |
 | zora     |  9 |
 | tape     |  8 |
@@ -133,13 +142,15 @@ mode=assertName ./run.sh mocha
 - **ava** and **jest** have an aditional large start cost when first run
 - `./perf.sh` to run all
 
-| mocha      | 1,72 |
-| jest       | 9,52 |
-| ava        | 8,06 |
-| lab        | 3,60 |
-| tape       | 0,70 |
-| tap        | 5,40 |
-| tapeReport | 1,26 |
-| zora       | 0,52 |
-| zoraReport | 1,12 |
+|            |      |
+|------------|------|
 | zoraSingle | 0,37 |
+| zora       | 0,52 |
+| tape       | 0,70 |
+| zoraReport | 1,12 |
+| tapeReport | 1,26 |
+| mocha      | 1,72 |
+| lab        | 3,60 |
+| tap        | 5,40 |
+| ava        | 8,06 |
+| jest       | 9,52 |

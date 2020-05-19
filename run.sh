@@ -15,6 +15,7 @@ tapDifflet="./node_modules/tap-difflet/bin/tap-difflet"
 # combine with watcher of choice
 # mocha() { ./node_modules/mocha/bin/mocha test/success/employeeMochaTest.js; } preciso como string!!
 mocha="./node_modules/mocha/bin/mocha -r chai/register-expect --inline-diffs --reporter min test/employeeMochaTest.js"
+mochaParallel="./node_modules/mocha-parallel-tests/dist/bin/cli.js -r chai/register-expect --inline-diffs --reporter min test/employeeMochaTest.js"
 jest="./node_modules/jest/bin/jest.js --runInBand"
 ava="./node_modules/ava/cli.js --serial --fail-fast test/employeeAvaTest.js"
 lab="./node_modules/@hapi/lab/bin/lab --silence test/employeeLabTest.js"
@@ -33,7 +34,7 @@ jestWatch="$jest --watch --runInBand --bail 1"
 avaWatch="$ava --watch"
 
 # assert watch
-mochaAssert="./node_modules/mocha/bin/mocha -r chai/register-expect --inline-diffs --reporter min test/employeeMochaAssertTest.js"
+mochaAssert="./node_modules/mocha/bin/mocha  --inline-diffs --reporter min test/employeeMochaAssertTest.js"
 
 perf() { time for i in {1..10}; do eval ${!1}; done;}
 
