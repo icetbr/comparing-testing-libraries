@@ -14,9 +14,9 @@ tapDifflet="./node_modules/tap-difflet/bin/tap-difflet"
 
 # combine with watcher of choice
 # mocha() { ./node_modules/mocha/bin/mocha test/success/employeeMochaTest.js; } preciso como string!!
-mocha="./node_modules/mocha/bin/mocha -r chai/register-expect --inline-diffs --reporter min test/employeeMochaTest.js"
+mocha="./node_modules/mocha/bin/mocha -r chai/register-expect --inline-diffs --bail --reporter min test/employeeMochaTest.js"
 mochaParallel="./node_modules/mocha-parallel-tests/dist/bin/cli.js -r chai/register-expect --inline-diffs --reporter min test/employeeMochaTest.js"
-jest="./node_modules/jest/bin/jest.js --runInBand"
+jest="./node_modules/jest/bin/jest.js --runInBand employeeJestTest.js"
 ava="./node_modules/ava/cli.js --serial --fail-fast test/employeeAvaTest.js"
 lab="./node_modules/@hapi/lab/bin/lab --silence test/employeeLabTest.js"
 tape="./node_modules/tape/bin/tape test/employeeTapeTest.js"
