@@ -11,7 +11,7 @@ Comparing the developer experience of using different testing libraries in javas
 [mode=(equalError|exception)] ./run.sh nativeWatcherName
 [mode=(equalError|exception)] ./run.sh watcherName libName
 [mode=(equalError|exception)] ./run.sh perf libName
-mode=assertName ./run.sh mochaAssert
+mode=(assert|chai|should|jest|lab|unexpect) ./run.sh mochaAssert
 ```
 
 **Examples**
@@ -27,7 +27,6 @@ mode=jest ./run.sh mochaAssert
 ```
 
 ## What I'm looking for in a testing experience
-
 - fast single test run
   - "flicker free" watch mode, that is I hit "CTRL + S" and VScode's terminal shows my test result without even blinking
 - pretty print string comparison diff
@@ -45,7 +44,6 @@ mode=jest ./run.sh mochaAssert
 
 
 ## My impressions
-
 - this is by no means a complete comparison, there is way to much to talk about each library
 - all of these libraries are awesome and i could use any of them for my needs. Having the choice, I'm being very picky In order to choose one
 - less maintained libraries usually have deprecated dependencies, it would be ideal to avoid them
@@ -113,13 +111,11 @@ mode=jest ./run.sh mochaAssert
 - special syntax (`t.test`, `await test`, and others)
 
 ## Benchmarks
-
 - I started using npm scripts it has some overhead when first invoking them
 - bash scripts give me more flexibility
 - results from a XXX pc
 
 ## Watcher
-
 - results based on observation using the fastest of the watchers
 - 10 is instant feedback
 
@@ -133,7 +129,6 @@ mode=jest ./run.sh mochaAssert
 | ava      |  6 |
 
 ## Cold start
-
 - the time to run 10 tests from the ground up
 - **don't be fooled by the numbers**, these shouldn't be an issue for most people
   - 99% of the time people should be runnning tests in a batch, not like this
