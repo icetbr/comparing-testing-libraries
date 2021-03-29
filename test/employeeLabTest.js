@@ -4,7 +4,6 @@ const { describe, it } = exports.lab = require('@hapi/lab').script();
 const employee = require('../src/employee');
 
 Code.settings.truncateMessages = true;
-
 describe('employee', () => {
 
   it('insert saves the data to the database', async () => {

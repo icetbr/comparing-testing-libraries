@@ -10,8 +10,6 @@ const _ = require('lodash');
 
 Code.settings.truncateMessages = true;
 
-// using global chai as it seems to be the most popular assertion lib for mocha
-
 describe('employee', () => {
 
   it('insert saves the data to the database', async () => {
