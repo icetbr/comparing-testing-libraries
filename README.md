@@ -6,6 +6,13 @@ Comparing the developer experience of using different testing libraries in javas
 3) pick your target
 
 **Formats**
+- `equalError`: how an equality error looks like
+- `exception`: how an equality error looks like
+- `mochaAssert`: how mocha shows an equality error using different assert libs
+- `perf`: runs a simple performance test, otuputs to `result.txt`
+  - omit the lib name to test them all
+- `nativeWatcher` will use the lib's built in watch mechanism
+
 ```
 [mode=(equalError|exception)] ./run.sh libName
 [mode=(equalError|exception)] ./run.sh nativeWatcherName
@@ -34,13 +41,14 @@ mode=jest ./run.sh mochaAssert
 - async support
 - no special syntax
   - it should be easy to change between testing libraries
+  - makes for a more consistent experience when reading other people code with different test frameworks
 - clean stack traces
   - I only need one line of stacktrace to find my error, I dont want it to be the 5th of 10 lines
 - clear terminal before run
 - bail on error
   - if the change I made broke hundreds of test, I don't need to see all of them
 - easy toggle serial/parallel tests
-  - unit run in parallel, e2e in serial
+  - unit run in parallel, integration in serial
 
 
 ## My impressions
@@ -110,10 +118,12 @@ mode=jest ./run.sh mochaAssert
   - has its own reporter, but only if using its own runner
 - special syntax (`t.test`, `await test`, and others)
 
+
 ## Benchmarks
-- I started using npm scripts it has some overhead when first invoking them
-- bash scripts give me more flexibility
-- results from a XXX pc
+- I started using `npm scripts`, but they have a overhead when first invoking them
+- `bash scripts` give me more flexibility
+- TODO results from a XXX pc
+
 
 ## Watcher
 - results based on observation using the fastest of the watchers
@@ -128,11 +138,12 @@ mode=jest ./run.sh mochaAssert
 | lab      |  7 |
 | ava      |  6 |
 
+
 ## Cold start
 - the time to run 10 tests from the ground up
-- **don't be fooled by the numbers**, these shouldn't be an issue for most people
-  - 99% of the time people should be runnning tests in a batch, not like this
-- checkout [zora's][https://github.com/lorenzofox3/zora] more interesting yet still somewhat irrelevant benchmark
+- **don't be fooled by the numbers**, this is **not a huge issue**
+  - most of the time people run tests in a batch, not like this
+- checkout [zora's][https://github.com/lorenzofox3/zora] more interesting yet still **not a huge issue** benchmark
 - if you have an interesting benchmark, please send me the link
 - **ava** and **jest** have an aditional large start cost when first run
 - `./perf.sh` to run all
