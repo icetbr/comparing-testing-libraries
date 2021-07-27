@@ -1,4 +1,4 @@
-Comparing the developer experience of using different testing libraries in javascript
+[Developer UX comparison of javascript testing libraries](https://dev.to/icetbr/developer-ux-comparison-of-javascript-testing-libraries-2b9n)
 
 ## How to run
 1) clone
@@ -9,7 +9,7 @@ Comparing the developer experience of using different testing libraries in javas
 - `equalError`: how an equality error looks like
 - `exception`: how an equality error looks like
 - `mochaAssert`: how mocha shows an equality error using different assert libs
-- `perf`: runs a simple performance test, otuputs to `result.txt`
+- `perf`: runs a simple performance test, outputs to `result.txt`
   - omit the lib name to test them all
 - `nativeWatcher` will use the lib's built in watch mechanism
 
@@ -34,20 +34,20 @@ mode=jest ./run.sh mochaAssert
 ```
 
 ## What I'm looking for in a testing experience
-- fast single test run
+- **fast single test run**
   - "flicker free" watch mode, that is I hit "CTRL + S" and VScode's terminal shows my test result without even blinking
-- pretty print string comparison diff
+- **pretty print string comparison diff**
   - I use almost exclusively deep equal comparison in all of my tests
-- async support
-- no special syntax
+- **async support**
+- **no special syntax**
   - it should be easy to change between testing libraries
   - makes for a more consistent experience when reading other people code with different test frameworks
-- clean stack traces
-  - I only need one line of stacktrace to find my error, I dont want it to be the 5th of 10 lines
-- clear terminal before run
-- bail on error
+- **clean stack traces**
+  - I only need one line of stacktrace to find my error, I don't want it to be the 5th of 10 lines
+- **clear terminal before run**
+- **bail on error**
   - if the change I made broke hundreds of test, I don't need to see all of them
-- easy toggle serial/parallel tests
+- **easy toggle serial/parallel tests**
   - unit run in parallel, integration in serial
 
 
@@ -60,10 +60,10 @@ mode=jest ./run.sh mochaAssert
 - the library performance is not as simple as it look like
   - for one off tests, some need to be run in watch mode because of the costly startup time (Jest)
   - for the whole test suite, some need to run in parallel mode to really shine
-  - some are fast irregarding how you use them (zora, tape)
-- I couldn't find any tap reorter that I like as it is
+  - some are fast regardless how you use them (zora, tape)
+- I couldn't find any tap reporter that I like as it is
   - the best one, tap-difflet needed to be merged with tap-dot for less verbose outputs
-- big projects like Ava and Jest have some interesting features, like running only the tests affected by the changed code
+- big projects like **Ava** and **Jest** have some interesting features, like running only the tests affected by the changed code
   - currently I don't need these
 
 **Jest**
@@ -74,10 +74,10 @@ mode=jest ./run.sh mochaAssert
     - didn't recognize my command line pattern
 - very active development
 - too many lines of useless output when in watch mode
-- very user focused, readability in mind (ex: many usefull assertions)
+- very user focused, readability in mind (ex: many useful assertions)
 - bail doesn't work for tests in the same file (bug)
-- problems identifying test files (ex: cammel case userTest.js vs user.test.js)
-- poluted diff result, impossible to have inline diff
+- problems identifying test files (ex: camel case userTest.js vs user.test.js)
+- polluted diff result, impossible to have inline diff
 - ridiculously slow cold start
 - Jest doesn't always try to run test suites in parallel
   - weird errors when improper mocking
@@ -112,7 +112,7 @@ mode=jest ./run.sh mochaAssert
 **Zora**
 - interesting idea, it is "just" javascript
 - fast no matter how you run it
-- paralell tests by default, it takes extra work to make then synchronous, bad for integration tests
+- paralel tests by default, it takes extra work to make then synchronous, bad for integration tests
 - weird integrations with nodemon that makes it sometimes hang
 - the tap reporters I like are old and unmaintained
   - has its own reporter, but only if using its own runner
@@ -122,7 +122,7 @@ mode=jest ./run.sh mochaAssert
 ## Benchmarks
 - I started using `npm scripts`, but they have a overhead when first invoking them
 - `bash scripts` give me more flexibility
-- TODO results from a XXX pc
+- NOT using a SSD if I remember correctly
 
 
 ## Watcher
