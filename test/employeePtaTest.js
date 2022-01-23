@@ -1,7 +1,8 @@
 const { test } = require('zora');
 const employee = require('../src/employee');
 
-export default async t => {
+test('employee', async t => {
+
   await t.test('insert saves the data to the database', async t => {
     const data = { name: 'John', email: 'john@test.com', description: 'average height' };
     await employee.insert(data);
@@ -12,4 +13,7 @@ export default async t => {
     t.equal(actual, expected);
     await employee.removeAll();
   });
-}
+
+});
+
+// export default async t => {

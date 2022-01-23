@@ -1,4 +1,4 @@
-[Developer UX comparison of javascript testing libraries](https://dev.to/icetbr/developer-ux-comparison-of-javascript-testing-libraries-2b9n)
+[DX comparison of javascript testing libraries](https://dev.to/icetbr/developer-ux-comparison-of-javascript-testing-libraries-2b9n)
 
 ## How to run
 1) clone
@@ -118,6 +118,8 @@ mode=jest ./run.sh mochaAssert
   - has its own reporter, but only if using its own runner
 - special syntax (`t.test`, `await test`, and others)
 
+**uvu**
+- [no reporters support](https://github.com/lukeed/uvu/pull/107)
 
 ## Benchmarks
 - I started using `npm scripts`, but they have a overhead when first invoking them

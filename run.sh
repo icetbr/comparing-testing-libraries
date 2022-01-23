@@ -6,6 +6,7 @@ chokidar() { ./node_modules/chokidar-cli/index.js {test,src}/*.js --initial -c "
 onchange() { ./node_modules/onchange/cli.js {test,src}/*.js -i src/**/*.js test/**/*.js -o "printf \"\033c\";${!1}"; }
 
 tapDifflet="./node_modules/tap-difflet/bin/tap-difflet"
+tapBail="./node_modules/tap-bail/bin/tap-bail.js"
 
 ## TEST LIBS
 # combine with watcher of choice, see README for examples
@@ -19,9 +20,12 @@ tapePromise="node ./test/employeeTapePromiseTest.js"
 tap="./node_modules/tap/bin/run.js --no-coverage --reporter silent ./test/employeeTapTest.js"
 tapeReport="$tape | $tapDifflet"
 zora="echo 'process.exit(0);' | node -r ./test/employeeZoraTest.js"
-pta="./node_modules/pta/src/cli.js -r tap ./test/employeePtaTest.js"
+zoraEsm="node ./test/employeeZoraEsmTest.mjs"
+pta="./node_modules/pta/src/bin.js -R tap ./test/employeePtaTest.js"
+ptaEsm="./node_modules/pta/src/bin.js -R tap ./test/employeeZoraEsmTest.mjs"
 zoraReport="$zora | $tapDifflet"
-zoraSingle="node ./test/employeeZoraTest.js"
+zoraSingle="ZORA_ONLY=true node ./test/employeeZoraTest.js"
+uvu="node test/employeeUvuTest.js"
 
 ## NATIVE WATCHERS
 mochaWatch="$mocha --reporter min --watch --inline-diffs -r chai/register-expect"
