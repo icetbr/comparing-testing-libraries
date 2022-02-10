@@ -117,9 +117,15 @@ mode=jest ./run.sh mochaAssert
 - the tap reporters I like are old and unmaintained
   - has its own reporter, but only if using its own runner
 - special syntax (`t.test`, `await test`, and others)
+- no `only` support
 
 **uvu**
 - [no reporters support](https://github.com/lukeed/uvu/pull/107)
+- no parallelization
+- special syntax: test grouping
+
+**xv**
+- doesn't work
 
 ## Benchmarks
 - I started using `npm scripts`, but they have a overhead when first invoking them
@@ -149,16 +155,21 @@ mode=jest ./run.sh mochaAssert
 - if you have an interesting benchmark, please send me the link
 - **ava** and **jest** have an aditional large start cost when first run
 - `./perf.sh` to run all
+- **Vitest** is way too slow right now (~20s)
 
-|            |      |
-|------------|------|
-| zoraSingle | 0,37 |
-| zora       | 0,52 |
-| tape       | 0,70 |
-| zoraReport | 1,12 |
-| tapeReport | 1,26 |
-| mocha      | 1,72 |
-| lab        | 3,60 |
-| tap        | 5,40 |
-| ava        | 8,06 |
-| jest       | 9,52 |
+|            | 09/02 |
+|------------|-------|
+| baretest   |  0,30 |
+| zoraSingle |  0,33 |
+| zora       |  0,35 |
+| uvu        |  0,51 |
+| tape       |  0,87 |
+| zoraReport |  0,91 |
+| tapeReport |  1,07 |
+| lab        |  1,52 |
+| mocha      |  1,92 |
+| tap        |  3,16 |
+| ava        |  7,61 |
+| jest       | 10,15 |
+
+<!-- https://github.com/japa/core -->

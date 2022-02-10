@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-libs=( mocha jest ava lab tape tap tapeReport zora zoraReport zoraSingle)
+libs=(tape)
 
-rm results.txt
+rm -f results.txt
 
 for lib in "${libs[@]}"
 do
