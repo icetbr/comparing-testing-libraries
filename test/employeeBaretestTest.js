@@ -1,5 +1,5 @@
 const test = require('baretest')('My app');
-const assert = require('assert');
+const { deepStrictEqual: eq } = require('assert/strict');
 const employee = require('../src/employee');
 
 test('insert saves the data to the database', async () => {
@@ -9,7 +9,7 @@ test('insert saves the data to the database', async () => {
   const actual = await employee.find();
 
   const expected = process.env.mode === 'equalError' ? [{ ...data, name: 'John1' }] : [data];
-  assert.deepEqual(actual, expected);
+  eq(actual, expected);
   await employee.removeAll();
 });
 

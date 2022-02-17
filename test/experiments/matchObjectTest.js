@@ -1,4 +1,4 @@
-const assert = require('assert');
+const { deepStrictEqual: eq } = require('assert/strict');
 const Code = require('@hapi/code');
 const expectLab = Code.expect;
 const chai = require('chai');

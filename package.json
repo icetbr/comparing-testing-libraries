@@ -18,6 +18,7 @@
     "date-fns": "^2.28.0",
     "even-more-min": "^1.0.1",
     "expect": "^27.4.6",
+    "fast-deep-equal": "^3.1.3",
     "jest": "^27.4.7",
     "jest-circus": "^27.4.6",
     "jest-silent-reporter": "^0.5.0",
@@ -47,10 +48,13 @@
     "tap-summary": "^4.0.0",
     "tape": "^5.4.1",
     "tape-promise": "^4.0.0",
+    "tehanu": "^0.2.1",
+    "tehanu-repo-coco": "^0.0.2",
     "unexpected": "^12.0.3",
     "uvu": "^0.5.3",
     "vitest": "^0.2.1",
     "xv": "^1.1.1",
-    "zora": "^5.0.2"
+    "zora": "^5.0.2",
+    "zora-reporters": "^1.3.2"
   }
 }

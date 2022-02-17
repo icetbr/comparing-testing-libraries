@@ -1,7 +1,7 @@
-import { deepStrictEqual as eq } from 'assert/strict';
-import employee from '../src/employeeEsm.mjs';
+const { deepStrictEqual: eq } = require('assert/strict');
+const employee = require('../src/employee');
 
-export async function testInsertSavesTheDataToTheDatabase() {
+exports.testInsertSavesTheDataToTheDatabase = async () => {
   const data = { name: 'John', email: 'john@test.com', description: 'average height' };
   await employee.insert(data);
 

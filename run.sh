@@ -1,54 +1,82 @@
 #!/bin/bash
 
-## WATCHERS
-nodemon() { ./node_modules/nodemon/bin/nodemon.js -x "printf \"\033c\";${!1}"; }
-chokidar() { ./node_modules/chokidar-cli/index.js {test,src}/*.js --initial -c "printf \"\033c\";${!1}"; }
-onchange() { ./node_modules/onchange/cli.js {test,src}/*.js -i src/**/*.js test/**/*.js -o "printf \"\033c\";${!1}"; }
+#######################
+# REPORTERS
+#######################
 
-tapDiff2="./node_modules/.bin/tap-diff2"                   # compare output like lab
+tapDiff2="./node_modules/.bin/tap-diff2"                 # the compare output is like lab
 tapArc="./node_modules/.bin/tap-arc"
+zr="./node_modules/.bin/zr"
 
 tapDifflet="./node_modules/.bin/tap-difflet"             # verbose compare output
 tapSpot="./node_modules/.bin/tap-spot"                   # missing stringify for objects
 
-tapMocha="./node_modules/.bin/tap-mocha-reporter"        # doesnt work
+tapMocha="./node_modules/.bin/tap-mocha-reporter"
 tapBail="./node_modules/.bin/tap-bail"                   # output like tap
-tapSimple="./node_modules/tap-simple/bin/tap-simple"     # doesnt work
-tapSpec="./node_modules/.bin/tap-spec"                   # doesnt work
-tapSummary="./node_modules/.bin/tap-summary"             # no output
-tapNirvana="./node_modules/.bin/tap-nirvana"             # doesnt work
-tapSlim="./node_modules/.bin/slim-reporter theme=light"  # doesnt work
-tapSpecDot="./node_modules/.bin/tap-spec-dot"            # doesnt work
-tapOne="./node_modules/.bin/tap-one"                     # no output
+tapSimple="./node_modules/tap-simple/bin/tap-simple"     # doesn't work
+tapSpec="./node_modules/.bin/tap-spec"
+tapSummary="./node_modules/.bin/tap-summary"
+tapNirvana="./node_modules/.bin/tap-nirvana"
+tapSlim="./node_modules/.bin/slim-reporter theme=light"
+tapSpecDot="./node_modules/.bin/tap-spec-dot"
+tapOne="./node_modules/.bin/tap-one"                     # very minimalistic
 
 
-
-## TEST LIBS
+#######################
+# RUNNERS
+#######################
 # combine with watcher of choice, see README for examples
+
 mocha="./node_modules/mocha/bin/mocha -r chai/register-expect --inline-diffs --bail --leaks --reporter min test/employeeMochaTest.js"
-mochaParallel="./node_modules/mocha-parallel-tests/dist/bin/cli.js -r chai/register-expect --inline-diffs --reporter min test/employeeMochaTest.js"
 jest="./node_modules/jest/bin/jest.js --runInBand employeeJestTest.js"
-vitest="./node_modules/vitest/vitest.mjs"
 ava="./node_modules/ava/entrypoints/cli.mjs --serial --fail-fast test/employeeAvaTest.js"
-lab="./node_modules/@hapi/lab/bin/lab --verbose --leaks test/employeeLabTest.js"
+lab="./node_modules/@hapi/lab/bin/lab test/employeeLabTest.js"
 tape="./node_modules/tape/bin/tape test/employeeTapeTest.js"
-tapePromise="node ./test/employeeTapePromiseTest.js"
+tapeReport="$tape | $tapOne"
 tap="./node_modules/tap/bin/run.js --no-coverage --reporter silent ./test/employeeTapTest.js"
-tapeReport="$tape | $tapDifflet"
-zora="echo 'process.exit(0);' | node -r ./test/employeeZoraTest.js"
-zoraEsm="node ./test/employeeZoraEsmTest.mjs"
-pta="./node_modules/pta/src/bin.js -R tap ./test/employeePtaTest.js"
-ptaEsm="./node_modules/pta/src/bin.js -R tap ./test/employeeZoraEsmTest.mjs"
-zoraReport="$zora | $tapDifflet"
-zoraSingle="ZORA_ONLY=true node ./test/employeeZoraTest.js"
+pta="./node_modules/pta/src/bin.js ./test/employeePtaTest.js"
+zora="node ./test/employeeZoraTest.js"
+zoraReport="node test/employeeZoraTest.js | $tapOne"
 uvu="node test/employeeUvuTest.js"
 baretest="node test/employeeBaretestTest.js"
-xv="DOESNT WORK ./node_modules/.bin/xv test/employeeXvTest.mjs"
+best="node test/employeeBestTest.js"
+tehanu="node test/employeeTehanuTest.js"
+notest="node test/employeeNotestTest.js"
+xv="./node_modules/.bin/xv test/employeeXvTest.mjs"
+vitest="./node_modules/vitest/vitest.mjs"
+
+# RUNNERS: VARIATIONS
+mochaParallel="./node_modules/mocha-parallel-tests/dist/bin/cli.js -r chai/register-expect --inline-diffs --reporter min test/employeeMochaTest.js"
+labVerbose="./node_modules/@hapi/lab/bin/lab --verbose --leaks test/employeeLabTest.js"
+tapePromise="node ./test/employeeTapePromiseTest.js"
+zora2="ZORA_REPORTER=json node ./test/experiments/employeeZora2Test.mjs"
+zoraReportZr="ZORA_REPORTER=json node test/employeeZoraTest.js | $zr"
+bestFull="node test/experiments/employeeBestFullTest.mjs"
+
+xvCjs="./node_modules/.bin/xv testEsm/employeeXvCjsTest.js"
+ptaEsm="./node_modules/pta/src/bin.js -R tap ./testEsm/employeeZoraEsmTest.mjs"
+zoraEsm="node ./testEsm/employeeZoraEsmTest.mjs"
+notestEsm="node testEsm/employeeNotestEsmTest.mjs"
+bestEsm="node testEsm/employeeBestEsmTest.mjs"
+tehanuEsm="node testEsm/employeeTehanuEsmTest.mjs"
+
+#######################
+# WATCHERS
+#######################
+
+nodemon() { ./node_modules/nodemon/bin/nodemon.js -x "printf \"\033c\";${!1}"; }
+chokidar() { ./node_modules/chokidar-cli/index.js {test,src}/*.js --initial -c "printf \"\033c\";${!1}"; }
+onchange() { ./node_modules/onchange/cli.js {test,src}/*.js -i src/**/*.js test/**/*.js -o "printf \"\033c\";${!1}"; }
 
 ## NATIVE WATCHERS
 mochaWatch="$mocha --reporter min --watch --inline-diffs -r chai/register-expect"
 jestWatch="$jest --watch --runInBand --bail 1"
 avaWatch="$ava --watch"
+
+
+#######################
+# OTHERS
+#######################
 
 ## TEST DIFFERENT ASSERT LIBS WITH MOCHA
 mochaAssert="./node_modules/mocha/bin/mocha  --inline-diffs --reporter min test/employeeMochaAssertTest.js"
@@ -58,8 +86,9 @@ report="node test/reports/reportTest.js | $tapDiff2"
 
 ## PERF TEST
 perf() { time for i in {1..10}; do eval ${!1}; done;}
+perf100() { time for i in {1..100}; do eval ${!1}; done;}
 
-## RUNNER
+## RUNNER: see README.md for examples
 if [ $1 == "perf" ]; then
   perf $2
 elif [ -z "$2" ]; then  # if doesn't have 2nd param

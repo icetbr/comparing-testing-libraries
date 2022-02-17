@@ -1,4 +1,4 @@
-const assert = require('assert');
+const { deepStrictEqual: eq } = require('assert/strict');
 const Code = require('@hapi/code');
 const expectLab = Code.expect;
 const chai = require('chai');
@@ -20,7 +20,7 @@ describe('employee', () => {
 
     const expected = [{ ...data, name: 'John1' }];
     const expects = {
-      assert: () => assert.deepEqual(actual, expected),
+      assert: () => eq(actual, expected),
       chai: () => chai.expect(actual).to.deep.equal(expected),
       should: () => actual.should.equal(expected),
       jest: () => expectJest(actual).toEqual(expected),
