@@ -1,59 +1,50 @@
-[DX comparison of javascript testing libraries](https://dev.to/icetbr/developer-ux-comparison-of-javascript-testing-libraries-2b9n)
+## Cold start times in seconds
 
-|  10 restarts       || 100 restarts      ||
-|-------------|-------|------------|-------|
-| notest      |  0,28 | notest     | 2,41  |
-| best        |  0,28 | best       | 2,54  |
-| tehanu      |  0,30 | tehanu     | 2,65  |
-| baretest    |  0,32 | baretest   | 2,76  |
-| zora        |  0,33 | xv         | 2,83  |
-| xv          |  0,37 | zora       | 2,97  |
-| uvu         |  0,44 | uvu        | 4,09  |
-| zoraReport  |  0,47 | zoraReport | 4,62  |
-| tapeReport  |  0,81 |
-| tape        |  0,89 |
-| pta         |  0,92 |
-| lab         |  1,29 |
-| mocha       |  1,63 |
-| tap         |  2,63 |
-| ava         |  5,30 |
-| jest        |  7,24 |
+| 10 restarts      |      |                 |      | 100 restarts      |      |
+|------------------|:----:|-----------------|:----:|-------------------|:----:|
+| [notest][1]      | 0,28 | [tapeReport][8] | 0,81 | [notest][1]       | 2,41 |
+| [best][2]        | 0,28 | [tape][8]       | 0,89 | [best][2]         | 2,54 |
+| [tehanu][3]      | 0,30 | [pta][9]        | 0,92 | [tehanu][3]       | 2,65 |
+| [baretest][4]    | 0,32 | [lab][10]       | 1,29 | [baretest][4]     | 2,76 |
+| [zora][5]        | 0,33 | [mocha][11]     | 1,63 | [xv][6]           | 2,83 |
+| [xv][6]          | 0,37 | [tap][12]       | 2,63 | [zora][5]         | 2,97 |
+| [uvu][7]         | 0,44 | [ava][13]       | 5,30 | [uvu][7]          | 4,09 |
+| [zoraReport][5]  | 0,47 | [jest][14]      | 7,24 | [zoraReport][5]   | 4,62 |
 
-**Cold start times in seconds, updated 2022-02-17, explanations bellow**
+> updated 2022-02-17
+
+This is my favorite metric. While coding, I run only one test at a time. This tells how much time it takes to "refresh" my test output. This table shows the results of running `time node test/myTest.js` 10/100 times (see [perf.sh](./perf.sh))
+
+I tried to be fair, but some runners have no output, this makes them faster. Also **esm** modules are a little slower (**xv** is esm only)
+
+**Best** and **Notest** are the fastest possible implementations, they are not actual libs.
+
+**Jest** and **Ava** scores poorly here because they rely on **hot reloading (HMR)**. It takes a while to load the first time, but subsequent runs are comparable to the fastests libs. Some libs like **Mocha's native watch** mode makes subsequent runs faster as well.
+
+Bear in mind that this is the result of 10/100 runs. So, a **Baretest** run might take 33ms and Tape 80ms. Ask yourself if this will make a difference, these are very small numbers.
+
+Checkou some [stats][40]
 
 
-## How to run
-1) clone
-2) npm install
-3) pick your target
+### Watch mode
+My impressions based on observation. 10 means a flicker-free instant feedback
 
-**Formats**
-- `equalError`: how an equality error looks like
-- `exception`: how an equality error looks like
-- `mochaAssert`: how mocha shows an equality error using different assert libs
-- `perf`: runs a simple performance test, outputs to `result.txt`
-  - omit the lib name to test them all
-- `nativeWatcher` will use the lib's built in watch mechanism
+|          |    |
+|----------|----|
+| mocha    | 10 |
+| zora     |  9 |
+| tape     |  8 |
+| jest     |  7 |
+| lab      |  7 |
+| ava      |  6 |
 
-```
-[mode=(equalError|exception)] ./run.sh libName
-[mode=(equalError|exception)] ./run.sh nativeWatcherName
-[mode=(equalError|exception)] ./run.sh watcherName libName
-[mode=(equalError|exception)] ./run.sh perf libName
-mode=(assert|chai|should|jest|lab|unexpect) ./run.sh mochaAssert
-```
+## Notable mentions
+Minimalist and somewhat interesting new test runners
+- [g-test-runner][15]: zero dependency, many features, like "rerun only failed tests"
+- [natr][16]: [riteway][17] inspired
+- [oletus][18]: zero configuration, zero dependency
+- [beartest][19]: jest syntax, less features, faster
 
-**Examples**
-```sh
-./run.sh mocha
-mode=exception ./run.sh mocha
-mode=jest ./run.sh mochaAssert
-./run.sh mochaWatch
-./run.sh nodemon lab
-./run.sh chockidar lab
-./run.sh onchange zora
-./run.sh perf jest
-```
 
 ## What I'm looking for in a testing experience
 - **fast single test run**
@@ -118,7 +109,7 @@ These are mostly nitpicking based on first impressions, they are all great libra
 
 ### Tape
 - no support for async (use tape-promise or other)
-- need a tap reporter
+- needs a tap reporter
 - special syntax (`t.test`)
 
 ### Zora
@@ -126,7 +117,6 @@ These are mostly nitpicking based on first impressions, they are all great libra
 - fast no matter how you run it
 - paralel tests by default, it takes extra work to make then synchronous, bad for integration tests
 - weird integrations with nodemon that makes it sometimes hang
-- the tap reporters I like are old and unmaintained
 - special syntax (`t.test`, `await test`, and others)
 
 ### uvu
@@ -135,40 +125,72 @@ These are mostly nitpicking based on first impressions, they are all great libra
 - special syntax: test grouping
 
 
-## Cold start
-
-This is my favorite metric. While coding, I run only one test at a time. This tells how much time it takes to "refresh" my test output. This table shows the results of running `time node test/myTest.js` 10/100 times (see [perf.sh](./perf.sh))
-
-I tried to be fair, but I can run some runners with no output, this makes them faster. Also **esm** modules are a little slower (**xv** is esm only)
-
-**Best** and **Notest** are the fastest possible implementations, they are not actual libs.
-
-**Jest** and **Ava** scores poorly here because they rely on **hot reloading (HMR)**. It takes a while to load the first time, but subsequent runs are comparable to the fastests libs. Some libs like **Mocha's native watch** mode makes subsequent runs faster as well.
-
-Also, remember that this is the result of 10/100 runs. So, a **Baretest** run might take 33ms and Tape 80ms. Ask yourself if this will make a difference, these are very small numbers.
-
-### Watch mode
-My impressions based on observation. 10 means a flicker-free instant feedback
-
-|          |    |
-|----------|----|
-| mocha    | 10 |
-| zora     |  9 |
-| tape     |  8 |
-| jest     |  7 |
-| lab      |  7 |
-| ava      |  6 |
-
 ### Notes
 - other benchmarks
+  - [tehanu](https://github.com/prantlf/tehanu/tree/master/benchmarks)
   - [zora](https://github.com/lorenzofox3/zora/tree/master/perfs)
+  - [uvu](https://github.com/lukeed/uvu#benchmarks)
 - **Ava** and **Jest** have an aditional large start cost when first run
 - to test this yourself, run `./perf.sh`
 - **Vitest** is way too slow right now, it took ~20s in 120 runs
 - `bash script` over `npm scripts` because it's faster and more flexible
+- The previous version of this README posted at dev.to: [DX comparison of javascript testing libraries][41]
 
-<!-- icet
-dull, sober (antonym to jest)
-best -->
+## How to run
+1) clone
+2) npm install
+3) pick your target
+
+**Formats**
+- `equalError`: how an equality error looks like
+- `exception`: how an equality error looks like
+- `mochaAssert`: how mocha shows an equality error using different assert libs
+- `perf`: runs a simple performance test, outputs to `result.txt`
+  - omit the lib name to test them all
+- `nativeWatcher` will use the lib's built in watch mechanism
+
+```
+[mode=(equalError|exception)] ./run.sh libName
+[mode=(equalError|exception)] ./run.sh nativeWatcherName
+[mode=(equalError|exception)] ./run.sh watcherName libName
+[mode=(equalError|exception)] ./run.sh perf libName
+mode=(assert|chai|should|jest|lab|unexpect) ./run.sh mochaAssert
+```
+
+**Examples**
+```sh
+./run.sh mocha
+mode=exception ./run.sh mocha
+mode=jest ./run.sh mochaAssert
+./run.sh mochaWatch
+./run.sh nodemon lab
+./run.sh chockidar lab
+./run.sh onchange zora
+./run.sh perf jest
+```
 
 <!-- https://github.com/japa/core -->
+<!-- Testman https://gist.github.com/earonesty/2a8ac3a03e88ac90292cc28c823eb80b -->
+<!-- https://www.sohamkamani.com/blog/javascript/making-a-node-js-test-runner/ -->
+
+[1]: test/employeeNotestTest.js
+[2]: best/best.js
+[3]: https://github.com/prantlf/tehanu
+[4]: https://github.com/volument/baretest
+[5]: https://github.com/lorenzofox3/zora
+[6]: https://github.com/typicode/xv
+[7]: https://github.com/lukeed/uvu
+[8]: https://github.com/substack/tape
+[9]: https://github.com/lorenzofox3/zora/tree/master/pta
+[10]: https://github.com/hapijs/lab
+[11]:  https://github.com/mochajs/mocha
+[12]: https://github.com/tapjs/node-tap
+[13]: https://github.com/avajs/ava
+[14]: https://github.com/facebook/jest
+[15]: https://github.com/ged-odoo/g-test-runner
+[16]: https://github.com/krieselreihe/natr
+[17]: https://github.com/ericelliott/riteway
+[18]: https://github.com/bearror/oletus
+[19]: https://github.com/rubber-duck-software/beartest
+[40]: https://moiva.io/?npm=@hapi/lab+ava+baretest+jasmine+jest+mocha+tap+tape+tehanu+uvu+xv+zora
+[41]: https://dev.to/icetbr/developer-ux-comparison-of-javascript-testing-libraries-2b9n

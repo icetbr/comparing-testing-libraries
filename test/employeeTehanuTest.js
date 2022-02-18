@@ -1,6 +1,7 @@
 const test = require('tehanu')('');
 const { deepStrictEqual: eq } = require('assert/strict');
 const employee = require('../src/employee');
+// const { equal } = require('tehanu-teas');
 
 // test('employee', async t => {
 

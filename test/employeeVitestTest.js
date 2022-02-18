@@ -1,5 +1,5 @@
 import { assert, expect, test , it, describe } from 'vitest';
-const employee = require('../src/employee');
+import employee from '../src/employeeEsm.mjs';
 
 describe('employee', () => {
 

@@ -50,6 +50,7 @@
     "tape-promise": "^4.0.0",
     "tehanu": "^0.2.1",
     "tehanu-repo-coco": "^0.0.2",
+    "tehanu-teas": "^0.0.2",
     "unexpected": "^12.0.3",
     "uvu": "^0.5.3",
     "vitest": "^0.2.1",
