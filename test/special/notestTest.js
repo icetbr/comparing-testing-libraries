@@ -1,5 +1,5 @@
 const { deepStrictEqual: eq } = require('assert/strict');
-const employee = require('../src/employee');
+const employee = require('../../src/employee');
 
 // test('insert saves the data to the database', async () => {
 async function a() {

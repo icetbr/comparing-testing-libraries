@@ -1,5 +1,5 @@
 import { assert, expect, test , it, describe } from 'vitest';
-import employee from '../src/employeeEsm.mjs';
+import employee from '../../src/employeeEsm.mjs';
 
 describe('employee', () => {
 

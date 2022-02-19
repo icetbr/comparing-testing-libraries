@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 libs=(jest ava tap mocha lab pta tape tapeReport zoraReport uvu xv zora baretest tehanu best notest)
-fastestLibs=(xv zoraReport zora uvu baretest tehanu best notest)
+fastestLibs=(zoraReport uvu zora xv baretest tehanu best notest)
 # fastestLibs=(zoraEsm zora)
 # fastestLibs=(best bestEsm)
 # fastestLibs=(xv xvEsm)

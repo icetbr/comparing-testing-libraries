@@ -27,25 +27,27 @@ tapOne="./node_modules/.bin/tap-one"                     # very minimalistic
 #######################
 # combine with watcher of choice, see README for examples
 
-mocha="./node_modules/mocha/bin/mocha -r chai/register-expect --inline-diffs --bail --leaks --reporter min test/employeeMochaTest.js"
-jest="./node_modules/jest/bin/jest.js --runInBand employeeJestTest.js"
-ava="./node_modules/ava/entrypoints/cli.mjs --serial --fail-fast test/employeeAvaTest.js"
-lab="./node_modules/@hapi/lab/bin/lab test/employeeLabTest.js"
-tape="./node_modules/tape/bin/tape test/employeeTapeTest.js"
-tapeReport="$tape | $tapOne"
-tap="./node_modules/tap/bin/run.js --no-coverage --reporter silent ./test/employeeTapTest.js"
-pta="./node_modules/pta/src/bin.js ./test/employeePtaTest.js"
-zora="node ./test/employeeZoraTest.js"
-zoraReport="node test/employeeZoraTest.js | $tapOne"
-uvu="node test/employeeUvuTest.js"
-baretest="node test/employeeBaretestTest.js"
-best="node test/employeeBestTest.js"
-tehanu="node test/employeeTehanuTest.js"
-notest="node test/employeeNotestTest.js"
-xv="./node_modules/.bin/xv test/employeeXvTest.mjs"
-vitest="./node_modules/vitest/vitest.mjs"
+ava="./node_modules/ava/entrypoints/cli.mjs --serial --fail-fast test/avaTest.js"
+baretest="node test/baretestTest.js"
+best="node test/bestTest.js"
+jest="./node_modules/jest/bin/jest.js --runInBand test/jestTest.js"
+lab="./node_modules/@hapi/lab/bin/lab test/labTest.js"
+mocha="./node_modules/mocha/bin/mocha -r chai/register-expect --inline-diffs --bail --ui=tdd --leaks --reporter min test/mochaTest.js"
+tap="./node_modules/tap/bin/run.js --no-coverage --reporter silent ./test/tapTest.js"
+tape="./node_modules/tape/bin/tape test/tapeTest.js"
+tehanu="node test/tehanuTest.js"
+uvu="node test/uvuTest.js"
+zora="node ./test/zoraTest.js"
 
 # RUNNERS: VARIATIONS
+tapeReport="$tape | $tapOne"
+pta="./node_modules/pta/src/bin.js ./test/zoraTest.js"
+zoraReport="node test/zoraTest.js | $tapOne"
+notest="node test/special/notestTest.js"
+xv="./node_modules/.bin/xv test/special/xvTest.mjs"
+vitest="./node_modules/vitest/vitest.mjs"
+
+# RUNNERS: EXPERIMENTS
 mochaParallel="./node_modules/mocha-parallel-tests/dist/bin/cli.js -r chai/register-expect --inline-diffs --reporter min test/employeeMochaTest.js"
 labVerbose="./node_modules/@hapi/lab/bin/lab --verbose --leaks test/employeeLabTest.js"
 tapePromise="node ./test/employeeTapePromiseTest.js"
@@ -82,7 +84,7 @@ avaWatch="$ava --watch"
 mochaAssert="./node_modules/mocha/bin/mocha  --inline-diffs --reporter min test/employeeMochaAssertTest.js"
 
 ## REPORT TESTS
-report="node test/reports/reportTest.js | $tapDiff2"
+report="node test/reports/reportTest.js | $tapArc"
 
 ## PERF TEST
 perf() { time for i in {1..10}; do eval ${!1}; done;}

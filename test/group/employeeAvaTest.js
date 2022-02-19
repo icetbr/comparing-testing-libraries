@@ -1,8 +1,8 @@
-const test = require('baretest')('My app');
-const { deepStrictEqual: eq } = require('assert/strict');
+const test = require('ava');
 const employee = require('../src/employee');
 
-test('insert saves the data to the database', async () => {
+
+test('insert saves the data to the database', async ( { deepEqual: eq } ) => {
   const data = { name: 'John', email: 'john@test.com', description: 'average height' };
   await employee.insert(data);
 
@@ -13,7 +13,4 @@ test('insert saves the data to the database', async () => {
   await employee.removeAll();
 });
 
-
-!(async function () {
-  await test.run()
-})()
+// no nesting allowed

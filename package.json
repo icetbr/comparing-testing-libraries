@@ -6,6 +6,7 @@
     "@hapi/code": "^8.0.6",
     "@hapi/hapi": "^20.2.1",
     "@hapi/lab": "^24.5.1",
+    "@michaelray/dedent": "^1.0.0",
     "ava": "^4.0.1",
     "baretest": "^2.0.0",
     "chai": "^4.3.4",

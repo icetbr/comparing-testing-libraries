@@ -2,16 +2,16 @@
 
 | 10 restarts      |      |                 |      | 100 restarts      |      |
 |------------------|:----:|-----------------|:----:|-------------------|:----:|
-| [notest][1]      | 0,28 | [tapeReport][8] | 0,81 | [notest][1]       | 2,41 |
-| [best][2]        | 0,28 | [tape][8]       | 0,89 | [best][2]         | 2,54 |
-| [tehanu][3]      | 0,30 | [pta][9]        | 0,92 | [tehanu][3]       | 2,65 |
-| [baretest][4]    | 0,32 | [lab][10]       | 1,29 | [baretest][4]     | 2,76 |
-| [zora][5]        | 0,33 | [mocha][11]     | 1,63 | [xv][6]           | 2,83 |
-| [xv][6]          | 0,37 | [tap][12]       | 2,63 | [zora][5]         | 2,97 |
-| [uvu][7]         | 0,44 | [ava][13]       | 5,30 | [uvu][7]          | 4,09 |
-| [zoraReport][5]  | 0,47 | [jest][14]      | 7,24 | [zoraReport][5]   | 4,62 |
+| [notest][1]      | 0,27 | [tapeReport][8] | 0,81 | [notest][1]       | 2,55 |
+| [best][2]        | 0,29 | [tape][8]       | 0,84 | [best][2]         | 2,49 |
+| [tehanu][3]      | 0,31 | [pta][9]        | 1,00 | [tehanu][3]       | 2,80 |
+| [baretest][4]    | 0,34 | [lab][10]       | 1,25 | [baretest][4]     | 2,96 |
+| [zora][5]        | 0,34 | [mocha][11]     | 1,74 | [xv][6]           | 2,96 |
+| [xv][6]          | 0,38 | [tap][12]       | 2,98 | [zora][5]         | 3,22 |
+| [uvu][7]         | 0,44 | [ava][13]       | 6,13 | [uvu][7]          | 4,32 |
+| [zoraReport][5]  | 0,49 | [jest][14]      | 6,87 | [zoraReport][5]   | 4,67 |
 
-> updated 2022-02-17
+> updated 2022-02-19
 
 This is my favorite metric. While coding, I run only one test at a time. This tells how much time it takes to "refresh" my test output. This table shows the results of running `time node test/myTest.js` 10/100 times (see [perf.sh](./perf.sh))
 
@@ -42,7 +42,7 @@ My impressions based on observation. 10 means a flicker-free instant feedback
 Minimalist and somewhat interesting new test runners
 - [g-test-runner][15]: zero dependency, many features, like "rerun only failed tests"
 - [natr][16]: [riteway][17] inspired
-- [oletus][18]: zero configuration, zero dependency
+- [oletus][18]: zero configuration/dependency, **multi thread**!
 - [beartest][19]: jest syntax, less features, faster
 
 
@@ -169,6 +169,8 @@ mode=jest ./run.sh mochaAssert
 ./run.sh perf jest
 ```
 
+<!-- ## todo: 10k tests -->
+
 <!-- https://github.com/japa/core -->
 <!-- Testman https://gist.github.com/earonesty/2a8ac3a03e88ac90292cc28c823eb80b -->
 <!-- https://www.sohamkamani.com/blog/javascript/making-a-node-js-test-runner/ -->
@@ -183,7 +185,7 @@ mode=jest ./run.sh mochaAssert
 [8]: https://github.com/substack/tape
 [9]: https://github.com/lorenzofox3/zora/tree/master/pta
 [10]: https://github.com/hapijs/lab
-[11]:  https://github.com/mochajs/mocha
+[11]: https://github.com/mochajs/mocha
 [12]: https://github.com/tapjs/node-tap
 [13]: https://github.com/avajs/ava
 [14]: https://github.com/facebook/jest
