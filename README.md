@@ -23,7 +23,7 @@ I tried to be fair, but some runners have no output, this makes them faster. Als
 
 Bear in mind that this is the result of 10/100 runs. So, a **Baretest** run might take 33ms and Tape 80ms. Ask yourself if this will make a difference, these are very small numbers.
 
-Checkou some [stats][40]
+Also, checkou some [stats][40].
 
 
 ### Watch mode
@@ -136,38 +136,52 @@ These are mostly nitpicking based on first impressions, they are all great libra
 - `bash script` over `npm scripts` because it's faster and more flexible
 - The previous version of this README posted at dev.to: [DX comparison of javascript testing libraries][41]
 
-## How to run
+## Usage
 1) clone
 2) npm install
 3) pick your target
 
+Look inside `run.sh` and `scripts` for targets.
+
 **Formats**
-- `equalError`: how an equality error looks like
-- `exception`: how an equality error looks like
-- `mochaAssert`: how mocha shows an equality error using different assert libs
-- `perf`: runs a simple performance test, outputs to `result.txt`
-  - omit the lib name to test them all
-- `nativeWatcher` will use the lib's built in watch mechanism
+- `equalError`: forces an assertion error
+- `nativeWatcherName` will use the lib's built in watch mechanism
 
+### Simple targets
+```sh
+[mode=equalError] ./run.sh [10Times | 100Times] libName
+[mode=equalError] ./run.sh nativeWatcherName
+[mode=equalError] ./run.sh watcherName libName
 ```
-[mode=(equalError|exception)] ./run.sh libName
-[mode=(equalError|exception)] ./run.sh nativeWatcherName
-[mode=(equalError|exception)] ./run.sh watcherName libName
-[mode=(equalError|exception)] ./run.sh perf libName
+### Special targets
+```sh
 mode=(assert|chai|should|jest|lab|unexpect) ./run.sh mochaAssert
+
+./run.sh genBaseTests
+./run.sh genMediumTests
+./run.sh genLargeTests
+
+./run.sh perfReport
+./run.sh diffErrorsReport
 ```
 
-**Examples**
+### Examples
 ```sh
 ./run.sh mocha
-mode=exception ./run.sh mocha
+mode=equalError ./run.sh mocha
 mode=jest ./run.sh mochaAssert
 ./run.sh mochaWatch
+./run.sh 10Times mocha
 ./run.sh nodemon lab
 ./run.sh chockidar lab
 ./run.sh onchange zora
-./run.sh perf jest
 ```
+
+## How I use this
+- `./run.sh perfReport` generates a `txt` from which I create the performance table
+- `./run.sh diffErrorsReport` generates `.ansi` files so I can analyze the results
+
+**USE [VSCODE-ANSI][42] TO SEE THE ANSI FILES IN PREVIEW MODE**
 
 <!-- ## todo: 10k tests -->
 
@@ -196,3 +210,4 @@ mode=jest ./run.sh mochaAssert
 [19]: https://github.com/rubber-duck-software/beartest
 [40]: https://moiva.io/?npm=@hapi/lab+ava+baretest+jasmine+jest+mocha+tap+tape+tehanu+uvu+xv+zora
 [41]: https://dev.to/icetbr/developer-ux-comparison-of-javascript-testing-libraries-2b9n
+[42]: https://marketplace.visualstudio.com/items?itemName=iliazeus.vscode-ansi

@@ -1,0 +1,522 @@
+[0;35m
+****************************************************************************************************************
+jest
+****************************************************************************************************************
+[0m
+[1m[2mDetermining test suites to run...[22m[22m[999D[K.
+[1m[31m  [1m● [22m[1minsert saves the data to the database[39m[22m
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 1[39m
+    [31m+ Received  + 1[39m
+
+    [2m  Array [[22m
+    [2m    Object {[22m
+    [2m      "description": "average height",[22m
+    [2m      "email": "john@test.com",[22m
+    [32m-     "name": "John1",[39m
+    [31m+     "name": "John",[39m
+    [2m    },[22m
+    [2m  ][22m
+[2m[22m
+[2m    [0m [90m  9 |[39m[0m[22m
+[2m    [0m [90m 10 |[39m     [36mconst[39m expected [33m=[39m process[33m.[39menv[33m.[39mmode [33m===[39m [32m'equalError'[39m [33m?[39m [{ [33m...[39mdata[33m,[39m name[33m:[39m [32m'John1'[39m }] [33m:[39m [data][33m;[39m[0m[22m
+[2m    [0m[31m[1m>[22m[2m[39m[90m 11 |[39m     expect(actual)[33m.[39mtoEqual(expected)[33m;[39m[0m[22m
+[2m    [0m [90m    |[39m                    [31m[1m^[22m[2m[39m[0m[22m
+[2m    [0m [90m 12 |[39m     [36mawait[39m employee[33m.[39mremoveAll()[33m;[39m            [0m[22m
+[2m    [0m [90m 13 |[39m })[33m;[39m[0m[22m
+[2m    [0m [90m 14 |[39m[0m[22m
+[2m[22m
+[2m      [2mat Object.<anonymous> ([22m[2m[0m[36mtest/jestTest.js[39m[0m[2m:11:20)[22m[2m[22m
+
+
+
+[0;35m
+****************************************************************************************************************
+ava
+****************************************************************************************************************
+[0m
+
+  [31m✖[39m insert saves the data to the database 
+  [90m─[39m
+
+  [1minsert saves the data to the database[22m
+
+  [90mtest/avaTest.js:11[39m
+
+   [90m10:[39m     const expected = process.env.mode === 'equalError' ? [{ ...data, name: 'John1' }] : [data];
+  [41m 11:     eq(actual, expected);                                                                      [49m
+   [90m12:[39m     await employee.removeAll();                                                                
+
+  Difference:
+
+    [90m[[39m
+      [90m{[39m
+        description: [34m'[39m[34maverage height[39m[34m'[39m[90m,[39m
+        email: [34m'[39m[34mjohn@test.com[39m[34m'[39m[90m,[39m
+  [31m-[39m     name: [34m'[39m[34mJohn[39m[34m'[39m[90m,[39m
+  [32m+[39m     name: [34m'[39m[34mJohn[39m[42m[30m1[39m[49m[34m'[39m[90m,[39m
+      [90m}[39m[90m,[39m
+    [90m][39m
+
+  [90m› test/avaTest.js:11:5[39m
+
+  [90m─[39m
+
+  [31m1 test failed[39m
+[0;35m
+****************************************************************************************************************
+tap
+****************************************************************************************************************
+[0m
+[?25l[1mSuites:[22m   [0m​[0m0 of 0 completed[0m[0m​[0m[0m[0m[0m[0m
+[1mAsserts:[22m  [0m​[0m0 [0m[0m​[0m[0m​[0mof 0[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m
+[0m​[0m[2m[1mTime:[0m[0m​[0m[0m[0m[2m[0m[0m   [0m[0m​[0m[2m[1m0ms[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[2m[1m[2m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m
+[?25l[2K[1A[2K[1A[2K[1A[2K[G[1mSuites:[22m   [0m​[0m0 of 1 completed[0m[0m​[0m[0m[0m[0m[0m
+[1mAsserts:[22m  [0m​[0m0 [0m[0m​[0m[0m​[0mof 0[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m
+[0m​[0m[2m[1mTime:[0m[0m​[0m[0m[0m[2m[0m[0m   [0m[0m​[0m[2m[1m76ms[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[2m[1m[2m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m
+[2K[1A[2K[1A[2K[1A[2K[G[0m​[0m[1m[43m[38;2;0;0;0m RUNS [0m[0m​[0m ./test/tapTest.js[0m[37m [0m[1m[38;2;170;170;170m1ms[39m[22m[0m[0m[1m[43m[0m[0m[0m[0m[37m[0m[0m[1m[43m[38;2;0;0;0m[0m[0m[0m[0m[0m[1m[43m[38;2;0;0;0m[0m[0m[0m[0m[0m[0m[0m
+[1mSuites:[22m   [0m​[0m0 of 1 completed[0m[0m​[0m[0m[0m[0m[0m
+[1mAsserts:[22m  [0m​[0m0 [0m[0m​[0m[0m​[0mof 0[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m
+[0m​[0m[2m[1mTime:[0m[0m​[0m[0m[0m[2m[0m[0m   [0m[0m​[0m[2m[1m76ms[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[2m[1m[2m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G[0m​[0m[1m[41m[38;2;255;255;255m FAIL [0m[0m​[0m ./test/tapTest.js[0m[0m[1m[41m[38;2;255;255;255m[0m[0m[0m[0m[0m[0m[0m
+[31m[1m ✖ [39m[22mshould be equivalent
+
+    const expected = process.env.mode === 'equalError' ? [{ ...data, name: 'John1' }] : [data];
+    eq(actual, expected);
+----^
+    await employee.removeAll();
+    end();
+
+  [38;2;51;0;0m[48;2;255;153;204m--- expected                          [49m[39m
+  [38;2;0;51;0m[48;2;204;255;153m+++ actual                            [49m[39m
+  [1m[48;2;255;255;255m[38;2;204;0;255m@@ -1,6 +1,6 @@[39m[49m[22m[48;2;255;255;255m[38;2;51;102;204m[1m                       [22m[39m[49m
+  [48;2;255;255;255m[38;2;17;17;17m Array [                              [39m[49m
+  [48;2;255;255;255m[38;2;17;17;17m   Object {                           [39m[49m
+  [38;2;51;0;0m[48;2;255;153;204m-    "name": "John1",                 [49m[39m
+  [38;2;0;51;0m[48;2;204;255;153m+    "name": "John",                  [49m[39m
+  [48;2;255;255;255m[38;2;17;17;17m     "email": "john@test.com",        [39m[49m
+  [48;2;255;255;255m[38;2;17;17;17m     "description": "average height", [39m[49m
+  [48;2;255;255;255m[38;2;17;17;17m   },                                 [39m[49m
+
+  test: ./test/tapTest.js insert saves the data to the database
+  at:
+    line: 11
+    column: 5
+    file: test/tapTest.js
+    type: Test
+  stack: |
+    Test.<anonymous> (test/tapTest.js:11:5)
+
+[0m​[0m[1m[43m[38;2;0;0;0m RUNS [0m[0m​[0m ./test/tapTest.js[0m[37m[31m 1 failed[39m[37m of[1m 1[22m [0m[1m[38;2;170;170;170m118ms[39m[22m[0m[0m[43m[0m[0m[0m[0m[31m[37m[1m[0m[0m[1m[43m[38;2;0;0;0m[0m[0m[0m[0m[0m[1m[43m[38;2;0;0;0m[0m[0m[0m[0m[0m[0m[0m
+[1mSuites:[22m   [0m​[0m0 of 1 completed[0m[0m​[0m[0m[0m[0m[0m
+[1mAsserts:[22m  [0m​[0m[0m​[0m[0m​[0m[31m1 failed[0m[0m​[0m, [0m[0m​[0mof 1[0m[0m​[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m
+[0m​[0m[2m[1mTime:[0m[0m​[0m[0m[0m[2m[0m[0m   [0m[0m​[0m[2m[1m188ms[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[2m[1m[2m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G[0m​[0m[1m[43m[38;2;0;0;0m RUNS [0m[0m​[0m ./test/tapTest.js[0m[37m[31m 1 failed[39m[37m of[1m 1[22m [0m[1m[38;2;170;170;170m145ms[39m[22m[0m[0m[43m[0m[0m[0m[0m[31m[37m[1m[0m[0m[1m[43m[38;2;0;0;0m[0m[0m[0m[0m[0m[1m[43m[38;2;0;0;0m[0m[0m[0m[0m[0m[0m[0m
+[1mSuites:[22m   [0m​[0m0 of 1 completed[0m[0m​[0m[0m[0m[0m[0m
+[1mAsserts:[22m  [0m​[0m[0m​[0m[0m​[0m[31m1 failed[0m[0m​[0m, [0m[0m​[0mof 1[0m[0m​[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m
+[0m​[0m[2m[1mTime:[0m[0m​[0m[0m[0m[2m[0m[0m   [0m[0m​[0m[2m[1m227ms[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[2m[1m[2m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m
+[2K[1A[2K[1A[2K[1A[2K[1A[2K[G[0m​[0m[1m[41m[38;2;255;255;255m FAIL [0m[0m​[0m ./test/tapTest.js[0m[37m[31m 1 failed[39m[37m of[1m 1[22m [0m[1m[38;2;170;170;170m18.232ms[39m[22m[0m[0m[41m[0m[0m[0m[0m[31m[37m[1m[0m[0m[1m[41m[38;2;255;255;255m[0m[0m[0m[0m[0m[1m[41m[38;2;255;255;255m[0m[0m[0m[0m[0m[0m[0m
+[31m[1m ✖ [39m[22mshould be equivalent
+
+[1mSuites:[22m   [0m​[0m[31m1 failed[0m[0m​[0m, [0m[0m​[0m1 of 1 completed[0m[0m​[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m
+[1mAsserts:[22m  [0m​[0m[0m​[0m[0m​[0m[31m1 failed[0m[0m​[0m, [0m[0m​[0mof 1[0m[0m​[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m
+[0m​[0m[2m[1mTime:[0m[0m​[0m[0m[0m[2m[0m[0m   [0m[0m​[0m[2m[1m236ms[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[2m[1m[2m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m
+[2K[1A[2K[1A[2K[1A[2K[G[0m​[0m
+
+[48;2;255;255;255m                         [49m
+[48;2;255;255;255m[38;2;51;51;51m[1m  🌈 SUMMARY RESULTS 🌈  [22m[39m[49m
+[48;2;255;255;255m                         [49m
+[0m​[0m[1m[41m[38;2;255;255;255m FAIL [0m[0m​[0m ./test/tapTest.js[0m[37m[31m 1 failed[39m[37m of[1m 1[22m [0m[1m[38;2;170;170;170m18.232ms[39m[22m[0m[0m[41m[0m[0m[0m[0m[31m[37m[1m[0m[0m[1m[41m[38;2;255;255;255m[0m[0m[0m[0m[0m[1m[41m[38;2;255;255;255m[0m[0m[0m[0m[0m[0m[0m
+[31m[1m ✖ [39m[22mshould be equivalent
+
+[0m​[0m
+[1mSuites:[22m   [0m​[0m[31m1 failed[0m[0m​[0m, [0m[0m​[0m1 of 1 completed[0m[0m​[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m
+[1mAsserts:[22m  [0m​[0m[0m​[0m[0m​[0m[31m1 failed[0m[0m​[0m, [0m[0m​[0mof 1[0m[0m​[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m
+[0m​[0m[2m[1mTime:[0m[0m​[0m[0m[0m[2m[0m[0m   [0m[0m​[0m[2m[1m252.944ms[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[2m[1m[2m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m
+[?25h[?25h[?25h[0;35m
+****************************************************************************************************************
+mocha
+****************************************************************************************************************
+[0m
+(node:19002) [DEP0148] DeprecationWarning: Use of deprecated folder mapping "./" in the "exports" field module resolution of the package at /home/ddv/dev/projects/comparing-testing-libraries/node_modules/chai/package.json imported from /home/ddv/dev/projects/comparing-testing-libraries/node_modules/mocha/lib/nodejs/esm-utils.js.
+Update this package.json to use a subpath pattern like "./*".
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2J[1;3H
+[92m [0m[32m 0 passing[0m[90m (4ms)[0m
+[31m  1 failing[0m
+
+[0m  1) insert saves the data to the database:
+
+      [31mAssertionError: expected [ Array(1) ] to deeply equal [ Array(1) ][0m      
+      [30;41mactual[0m [30;42mexpected[0m
+      
+      1 | [
+      2 |   {
+      3 |     "description": "average height"
+      4 |     "email": "john@test.com"
+      5 |     "name": "[30;41mJohn[0m[30;42mJohn1[0m"
+      6 |   }
+      7 | ]
+      [0m[90m
+      at Context.<anonymous> (test/mochaTest.js:11:28)
+[0m
+
+
+[0;35m
+****************************************************************************************************************
+lab
+****************************************************************************************************************
+[0m
+
+  
+  [31mx[0m
+
+Failed tests:
+
+  1) insert saves the data to the database:
+
+      [37;41mactual[0m [30;42mexpected[0m
+
+      [
+        {
+          description: 'average height',
+          email: 'john@test.com',
+          name: '[37;41mJohn[0m[30;42mJohn1[0m'
+        }
+      ]
+
+      [33mExpected [Array(1)] to equal specified value: [Array(1)][0m
+
+[90m      at /home/ddv/dev/projects/comparing-testing-libraries/test/labTest.js:13:23[0m
+
+
+[31m1 of 1 tests failed[0m
+Test duration: 4 ms
+Leaks: [32mNo issues[0m
+
+[0;35m
+****************************************************************************************************************
+pta
+****************************************************************************************************************
+[0m
+  
+  [41m[97m[1m FAIL [22m[39m[49m [1m[4m[1minsert saves the data to the database[22m[1m[24m[22m
+  [90mat[39m:  /home/ddv/dev/projects/comparing-testing-libraries/test/zoraTest.js:11:5
+  
+  should be equivalent
+  [36m[equal][39m diff in objects:
+  [41m[97m[1m - actual [22m[39m[49m [42m[97m[1m + expected [22m[39m[49m
+
+     [90m [ [39m
+     [90m   { [39m
+     [90m     "description": "average height", [39m
+     [90m     "email": "john@test.com", [39m
+  [41m[97m[1m - [22m[39m[49m     "name": "John"
+  [42m[97m[1m + [22m[39m[49m     "name": "John1"
+     [90m   } [39m
+     [90m ] [39m
+  
+  [1mTOTAL:  1[22m
+  [90m PASS:  0 [39m
+  [41m[97m[1m FAIL:  1 [22m[39m[49m
+  [90m SKIP:  0 [39m
+  
+[0;35m
+****************************************************************************************************************
+tape
+****************************************************************************************************************
+[0m
+TAP version 13
+# insert saves the data to the database
+not ok 1 should be deeply equivalent
+  ---
+    operator: deepEqual
+    expected: |-
+      [ { name: 'John1', email: 'john@test.com', description: 'average height' } ]
+    actual: |-
+      [ { name: 'John', email: 'john@test.com', description: 'average height' } ]
+    at: Test.<anonymous> (/home/ddv/dev/projects/comparing-testing-libraries/test/tapeTest.js:11:5)
+    stack: |-
+      Error: should be deeply equivalent
+          at Test.assert [as _assert] (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:314:54)
+          at Test.bound [as _assert] (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:99:32)
+          at Test.tapeDeepEqual (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:555:10)
+          at bound (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:99:32)
+          at Test.<anonymous> (/home/ddv/dev/projects/comparing-testing-libraries/test/tapeTest.js:11:5)
+          at processTicksAndRejections (node:internal/process/task_queues:96:5)
+  ...
+
+1..1
+# tests 1
+# pass  0
+# fail  1
+
+[0;35m
+****************************************************************************************************************
+uvu
+****************************************************************************************************************
+[0m
+[47m[1m[30m employee [39m[49m[22m [31m✘ [39m[31m  (0 / 1)
+[39m
+  [1m[41m FAIL [22m[49m[31m[47m[1m employee [49m[22m[39m [2m"[22m[31m[1minsert saves the data to the database[39m[22m[2m"[22m
+    Expected values to be deeply equal:[3m[2m  (equal)[23m[22m
+
+        [90m··[[39m
+        [31m[4m[2m[3mActual:[22m[23m[39m[24m
+        [31m--[2m·[22m[2m·[22m{[39m
+        [31m--[2m·[22m[2m·[22m[2m·[22m[2m·[22m"name":[2m·[22m"John",[39m
+        [31m--[2m·[22m[2m·[22m[2m·[22m[2m·[22m"email":[2m·[22m"john@test.com",[39m
+        [31m--[2m·[22m[2m·[22m[2m·[22m[2m·[22m"description":[2m·[22m"average[2m·[22mheight"[39m
+        [31m--[2m·[22m[2m·[22m}[39m
+        [32m[4m[2m[3mExpected:[22m[23m[39m[24m
+        [32m++[2m·[22m[2m·[22m{[39m
+        [32m++[2m·[22m[2m·[22m[2m·[22m[2m·[22m"name":[2m·[22m"John1",[39m
+        [32m++[2m·[22m[2m·[22m[2m·[22m[2m·[22m"email":[2m·[22m"john@test.com",[39m
+        [32m++[2m·[22m[2m·[22m[2m·[22m[2m·[22m"description":[2m·[22m"average[2m·[22mheight"[39m
+        [32m++[2m·[22m[2m·[22m}[39m
+        [90m··][39m
+        [90m
+    at assert (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/uvu/assert/index.js:33:8)
+    at equal (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/uvu/assert/index.js:45:2)
+    at Object.handler (/home/ddv/dev/projects/comparing-testing-libraries/test/uvuTest.js:13:5)
+    at async Number.runner (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/uvu/dist/index.js:77:5)
+    at async Timeout.exec [as _onTimeout] (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/uvu/dist/index.js:138:33)[39m
+
+
+
+  Total:     1[31m
+  Passed:    0[39m
+  Skipped:   0
+  Duration:  2.31ms
+
+[0;35m
+****************************************************************************************************************
+zora
+****************************************************************************************************************
+[0m
+TAP version 13
+# insert saves the data to the database
+not ok 1 - should be equivalent
+  ---
+    actual: [{"name":"John","email":"john@test.com","description":"average height"}]
+    expected: [{"name":"John1","email":"john@test.com","description":"average height"}]
+    operator: "equal"
+    at: " /home/ddv/dev/projects/comparing-testing-libraries/test/zoraTest.js:11:5"
+  ...
+
+1..1
+# tests 1
+# pass  0
+# fail  1
+# skip  0
+[0;35m
+****************************************************************************************************************
+baretest
+****************************************************************************************************************
+[0m
+[36mMy app [39m[31m
+
+! insert saves the data to the database 
+
+[39m[33mAssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+[39m[90m
+[32m+ actual[39m [31m- expected[39m
+
+  [
+    {
+      description: 'average height',
+      email: 'john@test.com',
+[32m+[39m     name: 'John'
+[31m-[39m     name: 'John1'
+    }
+  ]
+    at Object.fn (/home/ddv/dev/projects/comparing-testing-libraries/test/baretestTest.js:12:5)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async Function.self.run (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/baretest/baretest.js:31:9)
+    at async /home/ddv/dev/projects/comparing-testing-libraries/test/baretestTest.js:17:5[39m[0;35m
+****************************************************************************************************************
+tehanu
+****************************************************************************************************************
+[0m
+Failed: insert saves the data to the database
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+[32m+ actual[39m [31m- expected[39m
+
+  [
+    {
+      description: 'average height',
+      email: 'john@test.com',
+[32m+[39m     name: 'John'
+[31m-[39m     name: 'John1'
+    }
+  ]
+    at /home/ddv/dev/projects/comparing-testing-libraries/test/tehanuTest.js:12:5
+    at async run2 (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tehanu/dist/index.js:45:11)
+    at async runSuite (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tehanu/dist/index.js:72:13)
+    at async run (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tehanu/dist/index.js:32:7)
+[0;35m
+****************************************************************************************************************
+best
+****************************************************************************************************************
+[0m
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+[32m+ actual[39m [31m- expected[39m
+
+  [
+    {
+      description: 'average height',
+      email: 'john@test.com',
+[32m+[39m     name: 'John'
+[31m-[39m     name: 'John1'
+    }
+  ]
+    at Object.fn (/home/ddv/dev/projects/comparing-testing-libraries/test/bestTest.js:11:5)
+    at async Immediate.run (/home/ddv/dev/projects/comparing-testing-libraries/best/best.js:12:13)
+[0;35m
+****************************************************************************************************************
+ava
+****************************************************************************************************************
+[0m
+
+  [32m✔[39m insert saves the data to the database
+  [90m─[39m
+
+  [32m1 test passed[39m
+[0;35m
+****************************************************************************************************************
+tapArc
+****************************************************************************************************************
+[0m
+
+[2m  [22m[4minsert saves the data to the database[24m
+[2m  [22m[2m  [22m[31m✖[39m [2m1)[22m [31mshould be deeply equivalent[39m
+[2m  [22m[2m  [22m[2m  [22m[
+[2m  [22m[2m  [22m[2m  [22m[2m··[22m{
+[2m  [22m[2m  [22m[2m  [22m[2m··[22m[2m··[22m"name": "John[30m[42m1[49m[39m",
+[2m  [22m[2m  [22m[2m  [22m[2m··[22m[2m··[22m"email": "john@test.com",
+[2m  [22m[2m  [22m[2m  [22m[2m··[22m[2m··[22m"description": "average height"
+[2m  [22m[2m  [22m[2m  [22m[2m··[22m}
+[2m  [22m[2m  [22m[2m  [22m]
+[2m  [22m[2m  [22m[2m  [22m[2mAt: Test.<anonymous> (/test/tapeTest.js:11:5)[22m
+[2m  [22m[2m  [22m[2m  [22m
+
+[2m  [22m[31mFailed tests:[39m There was [31m1[39m failure
+
+[2m  [22m[2m  [22m[31m✖[39m [2m1)[22m should be deeply equivalent
+
+[2m  [22mtotal:     1
+[31m[2m  [22mfailing:   1
+[39m[2m[2m  [22m[2m30 ms[22m
+
+[0;35m
+****************************************************************************************************************
+tapDifflet
+****************************************************************************************************************
+[0m
+
+  [37m[1minsert saves the data to the database[22m[39m
+    [37m[31m[1m⨯ should be deeply equivalent[22m[37m[39m
+[37m[31m[1m[22m[37m[39m
+      [ { name: 'John[7m[31m1[39m[27m', email: 'john@test.com', description: 'average height' } ]
+      
+      [90mAt: Test.<anonymous> (/home/ddv/dev/projects/comparing-testing-libraries/test/tapeTest.js:11:5)[39m
+
+[31m[1m1 failing[22m[39m
+[31m[1m[22m[39m[32m[1m0 passing[22m[39m[90m (13ms)[39m
+
+[0;35m
+****************************************************************************************************************
+tapSpec
+****************************************************************************************************************
+[0m
+
+  [4minsert saves the data to the database[24m
+
+
+    [31m✖ should be deeply equivalent[39m
+    [31m------------------------------[39m
+[36m      operator: deepEqual
+      expected: |-
+        [ { name: 'John1', email: 'john@test.com', description: 'average height' } ]
+      actual: |-
+        [ { name: 'John', email: 'john@test.com', description: 'average height' } ]
+      at: Test.<anonymous> (/home/ddv/dev/projects/comparing-testing-libraries/test/tapeTest.js:11:5)
+      stack: |-
+  Error: should be deeply equivalent
+  at Test.assert [as _assert] (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:314:54)
+  at Test.bound [as _assert] (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:99:32)
+  at Test.tapeDeepEqual (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:555:10)
+  at bound (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:99:32)
+  at Test.<anonymous> (/home/ddv/dev/projects/comparing-testing-libraries/test/tapeTest.js:11:5)
+  at processTicksAndRejections (node:internal/process/task_queues:96:5)
+
+[39m
+
+
+  [31m[1mFailed Tests:[22m[39m There was [31m[1m1[22m[39m failure
+
+    insert saves the data to the database
+
+      [31m✖[39m [31mshould be deeply equivalent[39m
+
+
+  total:     1
+  [32mpassing:   0[39m
+  [31mfailing:   1[39m
+  duration:  19ms
+
+
+[0;35m
+****************************************************************************************************************
+tapNirvana
+****************************************************************************************************************
+[0m
+
+  [36minsert saves the data to the database[39m
+    [31m✖  should be deeply equivalent[39m
+    [31m-------------------------------[39m
+        [35moperator:[39m deepEqual
+        [35mexpected: [39m[{"name": "John1", "email": "john@test.com", "description": "average height"}]
+        [35mdiff: [39m[
+          0: {
+            name: [33m"John1" => "John"[39m
+          }
+        ]
+        [35msource: [39m[90mat Test.<anonymous> (/home/ddv/dev/projects/comparing-testing-libraries/test/tapeTest.js:11:5)[39m
+        [90mat processTicksAndRejections (node:internal/process/task_queues:96:5)[39m
+        [90m[39m
+        
+
+
+
+  [32mpassed: 0,[39m  [31mfailed: 1[39m  of 1 tests  [2m(12ms)[22m
+[0;35m
+****************************************************************************************************************
+zr
+****************************************************************************************************************
+[0m
+  
+  [41m[97m[1m FAIL [22m[39m[49m [1m[4m[1minsert saves the data to the database[22m[1m[24m[22m
+  [90mat[39m:  /home/ddv/dev/projects/comparing-testing-libraries/test/zoraTest.js:11:5
+  
+  should be equivalent
+  [36m[equal][39m diff in objects:
+  [41m[97m[1m - actual [22m[39m[49m [42m[97m[1m + expected [22m[39m[49m
+
+     [90m [ [39m
+     [90m   { [39m
+     [90m     "description": "average height", [39m
+     [90m     "email": "john@test.com", [39m
+  [41m[97m[1m - [22m[39m[49m     "name": "John"
+  [42m[97m[1m + [22m[39m[49m     "name": "John1"
+     [90m   } [39m
+     [90m ] [39m
+  
+  [1mTOTAL:  1[22m
+  [90m PASS:  0 [39m
+  [41m[97m[1m FAIL:  1 [22m[39m[49m
+  [90m SKIP:  0 [39m
+  

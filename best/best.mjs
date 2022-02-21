@@ -13,7 +13,7 @@ async function run() {
             // console.log('✅', tests[i].name)
         }
     } catch (e) {
-        console.log('❌', t.name)
+        // console.log('❌', t.name)
         console.log(e.stack)
     }
 }

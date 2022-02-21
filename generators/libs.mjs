@@ -1,7 +1,7 @@
-import { writeFileSync, readdirSync, rmSync, lstatSync } from 'fs';
-import dedent from '@michaelray/dedent';
+// import dedent from '@michaelray/dedent';
+import dedent from 'dedent-js';
 
-const libs = [
+export default [
     {
         name: 'ava',
         imports: `const test = require('ava');`,
@@ -15,7 +15,7 @@ const libs = [
         assertParam: ``,
         runner: dedent`
             !(async function () {
-                    await test.run();
+                await test.run();
             })();`
     },
     {
@@ -29,9 +29,11 @@ const libs = [
     {
         name: 'lab',
         imports: dedent`
-            const { expect } = require('@hapi/code');
-            const { lab } = exports.lab = require('@hapi/lab').script();`,
+            const Code = require('@hapi/code');
+            const { test } = exports.lab = require('@hapi/lab').script();
+            const { expect } = require('@hapi/code');`,
         assertion: `expect(actual).to.equal(expected);`,
+        runner: `Code.settings.truncateMessages = true;` // reduce trash from output
     },
     {
         name: 'mocha',
@@ -41,13 +43,13 @@ const libs = [
         name: 'tape',
         imports: `const { test } = require('tape');`,
         assertParam: `{ same: eq, end }`,
-        endTest: `\n        end();`,
+        endTest: `\n    end();`,
     },
     {
         name: 'tap',
         imports: `const { test } = require('tap');`,
         assertParam: `{ same: eq, end }`,
-        endTest: `\n        end();`,
+        endTest: `\n    end();`,
     },
     {
         name: 'tehanu',
@@ -62,7 +64,10 @@ const libs = [
             const { suite } = require('uvu');
             const { equal: eq } = require('uvu/assert');
             const test = suite('employee');`,
-        runner: `test.run();`,
+        runner: dedent`
+            !(async function () {
+                await test.run();
+            })();`
     },
     {
         name: 'zora',
@@ -70,27 +75,3 @@ const libs = [
         assertParam: `{ equal: eq }`,
     },
 ];
-
-const template = ({ imports = '', assertParam = '', assertion = 'eq(actual, expected);', runner = '', endTest = '' }) => dedent`
-    const employee = require('../src/employee');
-    ${imports}
-
-    test('insert saves the data to the database', async (${assertParam}) => {
-        const data = { name: 'John', email: 'john@test.com', description: 'average height' };
-        await employee.insert(data);
-
-        const actual = await employee.find();
-
-        const expected = process.env.mode === 'equalError' ? [{ ...data, name: 'John1' }] : [data];
-        ${assertion}
-        await employee.removeAll();${endTest}
-    });
-
-    ${runner}
-`
-
-readdirSync('test/').filter(f => lstatSync(`test/${f}`).isFile()).forEach(f => rmSync(`test/${f}`));
-
-libs.forEach(lib => {
-    writeFileSync(`test/${lib.name}Test.js`, template(lib));
-});

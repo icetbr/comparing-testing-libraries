@@ -1,100 +1,53 @@
 #!/bin/bash
 
-#######################
-# REPORTERS
-#######################
+source $(dirname $0)/scripts/utils.sh
+source $(dirname $0)/scripts/base.sh
+source $(dirname $0)/scripts/perf.sh
+source $(dirname $0)/scripts/diffErrors.sh
 
-tapDiff2="./node_modules/.bin/tap-diff2"                 # the compare output is like lab
-tapArc="./node_modules/.bin/tap-arc"
-zr="./node_modules/.bin/zr"
+10Times() { time for i in {1..10}; do eval ${!1}; done;}
+100Times() { time for i in {1..100}; do eval ${!1}; done;}
 
-tapDifflet="./node_modules/.bin/tap-difflet"             # verbose compare output
-tapSpot="./node_modules/.bin/tap-spot"                   # missing stringify for objects
+# replaces test/* with simple tests
+genBaseTests() { template=baseTemplate node generators/generate.mjs; }
 
-tapMocha="./node_modules/.bin/tap-mocha-reporter"
-tapBail="./node_modules/.bin/tap-bail"                   # output like tap
-tapSimple="./node_modules/tap-simple/bin/tap-simple"     # doesn't work
-tapSpec="./node_modules/.bin/tap-spec"
-tapSummary="./node_modules/.bin/tap-summary"
-tapNirvana="./node_modules/.bin/tap-nirvana"
-tapSlim="./node_modules/.bin/slim-reporter theme=light"
-tapSpecDot="./node_modules/.bin/tap-spec-dot"
-tapOne="./node_modules/.bin/tap-one"                     # very minimalistic
+# replaces test/* with tests causing an error on an object of medium size
+genMediumTests() { template=mediumDiffErrorTemplate node generators/generate.mjs; }
 
+# replaces test/* with tests causing an error on an object of large size
+genLargeTests() { template=largeDiffErrorTemplate node generators/generate.mjs; }
 
-#######################
-# RUNNERS
-#######################
-# combine with watcher of choice, see README for examples
+# generates an performance report in out/perfResults.txt
+perfReport() {
+  libs=(jest ava tap mocha lab pta tape tapeReport zoraReport uvu xv zora baretest tehanu best notest)
+  fastestLibs=(zoraReport uvu zora xv baretest tehanu best notest)
 
-ava="./node_modules/ava/entrypoints/cli.mjs --serial --fail-fast test/avaTest.js"
-baretest="node test/baretestTest.js"
-best="node test/bestTest.js"
-jest="./node_modules/jest/bin/jest.js --runInBand test/jestTest.js"
-lab="./node_modules/@hapi/lab/bin/lab test/labTest.js"
-mocha="./node_modules/mocha/bin/mocha -r chai/register-expect --inline-diffs --bail --ui=tdd --leaks --reporter min test/mochaTest.js"
-tap="./node_modules/tap/bin/run.js --no-coverage --reporter silent ./test/tapTest.js"
-tape="./node_modules/tape/bin/tape test/tapeTest.js"
-tehanu="node test/tehanuTest.js"
-uvu="node test/uvuTest.js"
-zora="node ./test/zoraTest.js"
+  perfReport "${libs[@]}" "${fastestLibs[@]}"
+}
 
-# RUNNERS: VARIATIONS
-tapeReport="$tape | $tapOne"
-pta="./node_modules/pta/src/bin.js ./test/zoraTest.js"
-zoraReport="node test/zoraTest.js | $tapOne"
-notest="node test/special/notestTest.js"
-xv="./node_modules/.bin/xv test/special/xvTest.mjs"
-vitest="./node_modules/vitest/vitest.mjs"
+smallDiffErrorsReport() { genBaseTests; _doReport $1 $2 "smallDiffErrors" "mode=equalError"; }
+mediumDiffErrorsReport() { genMediumTests; _doReport $1 $2 "mediumDiffErrors" ""; }
+largeDiffErrorsReport() { genLargeTests; _doReport $1 $2 "largeDiffErrors" ""; }
 
-# RUNNERS: EXPERIMENTS
-mochaParallel="./node_modules/mocha-parallel-tests/dist/bin/cli.js -r chai/register-expect --inline-diffs --reporter min test/employeeMochaTest.js"
-labVerbose="./node_modules/@hapi/lab/bin/lab --verbose --leaks test/employeeLabTest.js"
-tapePromise="node ./test/employeeTapePromiseTest.js"
-zora2="ZORA_REPORTER=json node ./test/experiments/employeeZora2Test.mjs"
-zoraReportZr="ZORA_REPORTER=json node test/employeeZoraTest.js | $zr"
-bestFull="node test/experiments/employeeBestFullTest.mjs"
+# generates assertion error reports in out/*.ansi
+diffErrorsReport() {
+  libs=(jest ava tap mocha lab pta tape uvu zora baretest tehanu best)
+  tapLibs=(tapDiff2 tapArc tapDifflet tapSpec tapNirvana)
 
-xvCjs="./node_modules/.bin/xv testEsm/employeeXvCjsTest.js"
-ptaEsm="./node_modules/pta/src/bin.js -R tap ./testEsm/employeeZoraEsmTest.mjs"
-zoraEsm="node ./testEsm/employeeZoraEsmTest.mjs"
-notestEsm="node testEsm/employeeNotestEsmTest.mjs"
-bestEsm="node testEsm/employeeBestEsmTest.mjs"
-tehanuEsm="node testEsm/employeeTehanuEsmTest.mjs"
+  smallDiffErrorsReport "${libs[@]}" "${tapLibs[@]}"
+  mediumDiffErrorsReport "${libs[@]}" "${tapLibs[@]}"
+  largeDiffErrorsReport "${libs[@]}" "${tapLibs[@]}"
+}
 
-#######################
-# WATCHERS
-#######################
+## the main runner, see README.md for examples
+runFunctionOrAlias() {
+  if [[ $(type -t $1) == function ]]; then
+    "$@"
+  elif [ -v ${1} ]; then
+    eval ${!1}
+  else
+    echo -e "target '${1}' not found\n"
+  fi
+}
 
-nodemon() { ./node_modules/nodemon/bin/nodemon.js -x "printf \"\033c\";${!1}"; }
-chokidar() { ./node_modules/chokidar-cli/index.js {test,src}/*.js --initial -c "printf \"\033c\";${!1}"; }
-onchange() { ./node_modules/onchange/cli.js {test,src}/*.js -i src/**/*.js test/**/*.js -o "printf \"\033c\";${!1}"; }
-
-## NATIVE WATCHERS
-mochaWatch="$mocha --reporter min --watch --inline-diffs -r chai/register-expect"
-jestWatch="$jest --watch --runInBand --bail 1"
-avaWatch="$ava --watch"
-
-
-#######################
-# OTHERS
-#######################
-
-## TEST DIFFERENT ASSERT LIBS WITH MOCHA
-mochaAssert="./node_modules/mocha/bin/mocha  --inline-diffs --reporter min test/employeeMochaAssertTest.js"
-
-## REPORT TESTS
-report="node test/reports/reportTest.js | $tapArc"
-
-## PERF TEST
-perf() { time for i in {1..10}; do eval ${!1}; done;}
-perf100() { time for i in {1..100}; do eval ${!1}; done;}
-
-## RUNNER: see README.md for examples
-if [ $1 == "perf" ]; then
-  perf $2
-elif [ -z "$2" ]; then  # if doesn't have 2nd param
-  eval ${!1} #for zora
-else
-  $1 $2
-fi
+runFunctionOrAlias $@
