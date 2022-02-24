@@ -31,12 +31,12 @@ largeDiffErrorsReport() { genLargeTests; _doReport $1 $2 "largeDiffErrors" ""; }
 
 # generates assertion error reports in out/*.ansi
 diffErrorsReport() {
-  libs=(jest ava tap mocha lab pta tape uvu zora baretest tehanu best)
-  tapLibs=(tapDiff2 tapArc tapDifflet tapSpec tapNirvana)
+  libs=(jest ava mocha lab pta best)
+  tapLibs=(tapDiff2 tapArc tapDifflet tapNirvana)
 
-  smallDiffErrorsReport "${libs[@]}" "${tapLibs[@]}"
-  mediumDiffErrorsReport "${libs[@]}" "${tapLibs[@]}"
-  largeDiffErrorsReport "${libs[@]}" "${tapLibs[@]}"
+  smallDiffErrorsReport libs tapLibs
+  mediumDiffErrorsReport libs tapLibs
+  largeDiffErrorsReport libs tapLibs
 }
 
 ## the main runner, see README.md for examples

@@ -48,7 +48,7 @@ export default {
             ],
         });
 
-        test('large object diff', (${assertParam}) => {
+        test('medium object diff', (${assertParam}) => {
             const actual = game();
             const expected = game();
             delete actual.teams[1].players[0].lastDraw;

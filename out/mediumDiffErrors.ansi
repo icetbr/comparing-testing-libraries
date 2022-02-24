@@ -4,7 +4,7 @@ jest
 ****************************************************************************************************************
 [0m
 [1m[2mDetermining test suites to run...[22m[22m[999D[K.
-[1m[31m  [1m● [22m[1mlarge object diff[39m[22m
+[1m[31m  [1m● [22m[1mmedium object diff[39m[22m
 
     [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
 
@@ -47,10 +47,10 @@ ava
 ****************************************************************************************************************
 [0m
 
-  [31m✖[39m large object diff 
+  [31m✖[39m medium object diff 
   [90m─[39m
 
-  [1mlarge object diff[22m
+  [1mmedium object diff[22m
 
   [90mtest/avaTest.js:32[39m
 
@@ -100,91 +100,17 @@ ava
   [31m1 test failed[39m
 [0;35m
 ****************************************************************************************************************
-tap
-****************************************************************************************************************
-[0m
-[?25l[1mSuites:[22m   [0m​[0m0 of 0 completed[0m[0m​[0m[0m[0m[0m[0m
-[1mAsserts:[22m  [0m​[0m0 [0m[0m​[0m[0m​[0mof 0[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m
-[0m​[0m[2m[1mTime:[0m[0m​[0m[0m[0m[2m[0m[0m   [0m[0m​[0m[2m[1m0ms[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[2m[1m[2m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m
-[?25l[2K[1A[2K[1A[2K[1A[2K[G[1mSuites:[22m   [0m​[0m0 of 1 completed[0m[0m​[0m[0m[0m[0m[0m
-[1mAsserts:[22m  [0m​[0m0 [0m[0m​[0m[0m​[0mof 0[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m
-[0m​[0m[2m[1mTime:[0m[0m​[0m[0m[0m[2m[0m[0m   [0m[0m​[0m[2m[1m76ms[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[2m[1m[2m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m
-[2K[1A[2K[1A[2K[1A[2K[G[0m​[0m[1m[43m[38;2;0;0;0m RUNS [0m[0m​[0m ./test/tapTest.js[0m[37m [0m[1m[38;2;170;170;170m0ms[39m[22m[0m[0m[1m[43m[0m[0m[0m[0m[37m[0m[0m[1m[43m[38;2;0;0;0m[0m[0m[0m[0m[0m[1m[43m[38;2;0;0;0m[0m[0m[0m[0m[0m[0m[0m
-[1mSuites:[22m   [0m​[0m0 of 1 completed[0m[0m​[0m[0m[0m[0m[0m
-[1mAsserts:[22m  [0m​[0m0 [0m[0m​[0m[0m​[0mof 0[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m
-[0m​[0m[2m[1mTime:[0m[0m​[0m[0m[0m[2m[0m[0m   [0m[0m​[0m[2m[1m76ms[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[2m[1m[2m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m
-[2K[1A[2K[1A[2K[1A[2K[1A[2K[G[0m​[0m[1m[41m[38;2;255;255;255m FAIL [0m[0m​[0m ./test/tapTest.js[0m[0m[1m[41m[38;2;255;255;255m[0m[0m[0m[0m[0m[0m[0m
-[31m[1m ✖ [39m[22mshould be equivalent
-
-[48;2;34;34;34m[38;2;170;170;170m  test/tapTest.js[39m                                       [49m
-[48;2;34;34;34m [38;2;119;119;119m 30 | [39m    [31mdelete[39m [38;2;238;238;238mactual[39m[32m.[39m[38;2;238;238;238mteams[39m[33m[[39m[36m1[39m[33m][39m[32m.[39m[38;2;238;238;238mplayers[39m[33m[[39m[36m0[39m[33m][39m[32m.[39m[38;2;238;238;238mlastDraw[39m[93m;[39m  [49m
-[48;2;34;34;34m [38;2;119;119;119m 31 | [39m    [31mdelete[39m [38;2;238;238;238mactual[39m[32m.[39m[38;2;238;238;238mteams[39m[33m[[39m[36m1[39m[33m][39m[32m.[39m[38;2;238;238;238mplayers[39m[33m[[39m[36m1[39m[33m][39m[32m.[39m[38;2;238;238;238mlastDraw[39m[93m;[39m  [49m
-[48;2;34;34;34m[31m[1m>[22m[39m 32[38;2;119;119;119m | [39m    [38;2;238;238;238meq[39m[93m([39m[38;2;238;238;238mactual[39m[32m,[39m [38;2;238;238;238mexpected[39m[93m)[39m[93m;[39m                        [49m
-[48;2;34;34;34m     [38;2;119;119;119m| [39m[31m----[1m^[22m[39m                                            [49m
-[48;2;34;34;34m [38;2;119;119;119m 33 | [39m    [38;2;238;238;238mend[39m[93m([39m[93m)[39m[93m;[39m                                       [49m
-[48;2;34;34;34m [38;2;119;119;119m 34 | [39m[33m}[39m[93m)[39m[93m;[39m                                              [49m
-[48;2;34;34;34m [38;2;119;119;119m 35 | [39m                                                 [49m
-
-  [38;2;51;0;0m[48;2;255;153;204m--- expected                        [49m[39m
-  [38;2;0;51;0m[48;2;204;255;153m+++ actual                          [49m[39m
-  [1m[48;2;255;255;255m[38;2;204;0;255m@@ -28,12 +28,10 @@[39m[49m[22m[48;2;255;255;255m[38;2;51;102;204m[1m                 [22m[39m[49m
-  [48;2;255;255;255m[38;2;17;17;17m         Object {                   [39m[49m
-  [48;2;255;255;255m[38;2;17;17;17m           "name": "Player 3",      [39m[49m
-  [48;2;255;255;255m[38;2;17;17;17m           "cards": "length(11)",   [39m[49m
-  [38;2;51;0;0m[48;2;255;153;204m-          "lastDraw": null,        [49m[39m
-  [48;2;255;255;255m[38;2;17;17;17m         },                         [39m[49m
-  [48;2;255;255;255m[38;2;17;17;17m         Object {                   [39m[49m
-  [48;2;255;255;255m[38;2;17;17;17m           "name": "Player 4",      [39m[49m
-  [48;2;255;255;255m[38;2;17;17;17m           "cards": "length(11)",   [39m[49m
-  [38;2;51;0;0m[48;2;255;153;204m-          "lastDraw": null,        [49m[39m
-  [48;2;255;255;255m[38;2;17;17;17m         },                         [39m[49m
-  [48;2;255;255;255m[38;2;17;17;17m       ],                           [39m[49m
-  [48;2;255;255;255m[38;2;17;17;17m       "reservePile": "length(11)", [39m[49m
-
-  test: ./test/tapTest.js large object diff
-  stack: |
-    Test.<anonymous> (test/tapTest.js:32:5)
-    Object.<anonymous> (test/tapTest.js:27:1)
-
-[0m​[0m[1m[43m[38;2;0;0;0m RUNS [0m[0m​[0m ./test/tapTest.js[0m[37m[31m 1 failed[39m[37m of[1m 1[22m [0m[1m[38;2;170;170;170m120ms[39m[22m[0m[0m[43m[0m[0m[0m[0m[31m[37m[1m[0m[0m[1m[43m[38;2;0;0;0m[0m[0m[0m[0m[0m[1m[43m[38;2;0;0;0m[0m[0m[0m[0m[0m[0m[0m
-[1mSuites:[22m   [0m​[0m0 of 1 completed[0m[0m​[0m[0m[0m[0m[0m
-[1mAsserts:[22m  [0m​[0m[0m​[0m[0m​[0m[31m1 failed[0m[0m​[0m, [0m[0m​[0mof 1[0m[0m​[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m
-[0m​[0m[2m[1mTime:[0m[0m​[0m[0m[0m[2m[0m[0m   [0m[0m​[0m[2m[1m190ms[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[2m[1m[2m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m
-[2K[1A[2K[1A[2K[1A[2K[1A[2K[G[0m​[0m[1m[43m[38;2;0;0;0m RUNS [0m[0m​[0m ./test/tapTest.js[0m[37m[31m 1 failed[39m[37m of[1m 1[22m [0m[1m[38;2;170;170;170m144ms[39m[22m[0m[0m[43m[0m[0m[0m[0m[31m[37m[1m[0m[0m[1m[43m[38;2;0;0;0m[0m[0m[0m[0m[0m[1m[43m[38;2;0;0;0m[0m[0m[0m[0m[0m[0m[0m
-[1mSuites:[22m   [0m​[0m0 of 1 completed[0m[0m​[0m[0m[0m[0m[0m
-[1mAsserts:[22m  [0m​[0m[0m​[0m[0m​[0m[31m1 failed[0m[0m​[0m, [0m[0m​[0mof 1[0m[0m​[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m
-[0m​[0m[2m[1mTime:[0m[0m​[0m[0m[0m[2m[0m[0m   [0m[0m​[0m[2m[1m228ms[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[2m[1m[2m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m
-[2K[1A[2K[1A[2K[1A[2K[1A[2K[G[0m​[0m[1m[41m[38;2;255;255;255m FAIL [0m[0m​[0m ./test/tapTest.js[0m[37m[31m 1 failed[39m[37m of[1m 1[22m [0m[1m[38;2;170;170;170m20.399ms[39m[22m[0m[0m[41m[0m[0m[0m[0m[31m[37m[1m[0m[0m[1m[41m[38;2;255;255;255m[0m[0m[0m[0m[0m[1m[41m[38;2;255;255;255m[0m[0m[0m[0m[0m[0m[0m
-[31m[1m ✖ [39m[22mshould be equivalent
-
-[1mSuites:[22m   [0m​[0m[31m1 failed[0m[0m​[0m, [0m[0m​[0m1 of 1 completed[0m[0m​[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m
-[1mAsserts:[22m  [0m​[0m[0m​[0m[0m​[0m[31m1 failed[0m[0m​[0m, [0m[0m​[0mof 1[0m[0m​[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m
-[0m​[0m[2m[1mTime:[0m[0m​[0m[0m[0m[2m[0m[0m   [0m[0m​[0m[2m[1m237ms[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[2m[1m[2m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m
-[2K[1A[2K[1A[2K[1A[2K[G[0m​[0m
-
-[48;2;255;255;255m                         [49m
-[48;2;255;255;255m[38;2;51;51;51m[1m  🌈 SUMMARY RESULTS 🌈  [22m[39m[49m
-[48;2;255;255;255m                         [49m
-[0m​[0m[1m[41m[38;2;255;255;255m FAIL [0m[0m​[0m ./test/tapTest.js[0m[37m[31m 1 failed[39m[37m of[1m 1[22m [0m[1m[38;2;170;170;170m20.399ms[39m[22m[0m[0m[41m[0m[0m[0m[0m[31m[37m[1m[0m[0m[1m[41m[38;2;255;255;255m[0m[0m[0m[0m[0m[1m[41m[38;2;255;255;255m[0m[0m[0m[0m[0m[0m[0m
-[31m[1m ✖ [39m[22mshould be equivalent
-
-[0m​[0m
-[1mSuites:[22m   [0m​[0m[31m1 failed[0m[0m​[0m, [0m[0m​[0m1 of 1 completed[0m[0m​[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m
-[1mAsserts:[22m  [0m​[0m[0m​[0m[0m​[0m[31m1 failed[0m[0m​[0m, [0m[0m​[0mof 1[0m[0m​[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[31m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m[0m
-[0m​[0m[2m[1mTime:[0m[0m​[0m[0m[0m[2m[0m[0m   [0m[0m​[0m[2m[1m253.868ms[0m[0m​[0m[0m[0m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[2m[1m[2m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m[0m[0m[0m[0m[0m[2m[1m[0m[0m[0m[0m[0m[2m[0m[0m
-[?25h[?25h[?25h[0;35m
-****************************************************************************************************************
 mocha
 ****************************************************************************************************************
 [0m
-(node:19286) [DEP0148] DeprecationWarning: Use of deprecated folder mapping "./" in the "exports" field module resolution of the package at /home/ddv/dev/projects/comparing-testing-libraries/node_modules/chai/package.json imported from /home/ddv/dev/projects/comparing-testing-libraries/node_modules/mocha/lib/nodejs/esm-utils.js.
+(node:24223) [DEP0148] DeprecationWarning: Use of deprecated folder mapping "./" in the "exports" field module resolution of the package at /home/ddv/dev/projects/comparing-testing-libraries/node_modules/chai/package.json imported from /home/ddv/dev/projects/comparing-testing-libraries/node_modules/mocha/lib/nodejs/esm-utils.js.
 Update this package.json to use a subpath pattern like "./*".
 (Use `node --trace-deprecation ...` to show where the warning was created)
 [2J[1;3H
 [92m [0m[32m 0 passing[0m[90m (4ms)[0m
 [31m  1 failing[0m
 
-[0m  1) large object diff:
+[0m  1) medium object diff:
 
       [31mAssertionError: expected { Object (turn, drawPile, ...) } to deeply equal { Object (turn, drawPile, ...) }[0m      
       [30;41mactual[0m [30;42mexpected[0m
@@ -249,7 +175,7 @@ lab
 
 Failed tests:
 
-  1) large object diff:
+  1) medium object diff:
 
       [37;41mactual[0m [30;42mexpected[0m
 
@@ -312,7 +238,7 @@ pta
 ****************************************************************************************************************
 [0m
   
-  [41m[97m[1m FAIL [22m[39m[49m [1m[4m[1mlarge object diff[22m[1m[24m[22m
+  [41m[97m[1m FAIL [22m[39m[49m [1m[4m[1mmedium object diff[22m[1m[24m[22m
   [90mat[39m:  /home/ddv/dev/projects/comparing-testing-libraries/test/zoraTest.js:32:5
   
   should be equivalent
@@ -370,209 +296,6 @@ pta
   
 [0;35m
 ****************************************************************************************************************
-tape
-****************************************************************************************************************
-[0m
-TAP version 13
-# large object diff
-not ok 1 should be deeply equivalent
-  ---
-    operator: deepEqual
-    expected: |-
-      { turn: { count: 1, player: 'within(1, 4)', phase: 'draw' }, drawPile: 'length(42)', discardPile: [], teams: [ { players: [ { name: 'Player 1', cards: 'length(11)', lastDraw: null }, { name: 'Player 2', cards: 'length(11)', lastDraw: null } ], reservePile: 'length(11)', board: [] }, { players: [ { name: 'Player 3', cards: 'length(11)', lastDraw: null }, { name: 'Player 4', cards: 'length(11)', lastDraw: null } ], reservePile: 'length(11)', board: [] } ] }
-    actual: |-
-      { turn: { count: 1, player: 'within(1, 4)', phase: 'draw' }, drawPile: 'length(42)', discardPile: [], teams: [ { players: [ { name: 'Player 1', cards: 'length(11)', lastDraw: null }, { name: 'Player 2', cards: 'length(11)', lastDraw: null } ], reservePile: 'length(11)', board: [] }, { players: [ { name: 'Player 3', cards: 'length(11)' }, { name: 'Player 4', cards: 'length(11)' } ], reservePile: 'length(11)', board: [] } ] }
-    at: Test.<anonymous> (/home/ddv/dev/projects/comparing-testing-libraries/test/tapeTest.js:32:5)
-    stack: |-
-      Error: should be deeply equivalent
-          at Test.assert [as _assert] (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:314:54)
-          at Test.bound [as _assert] (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:99:32)
-          at Test.tapeDeepEqual (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:555:10)
-          at bound (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:99:32)
-          at Test.<anonymous> (/home/ddv/dev/projects/comparing-testing-libraries/test/tapeTest.js:32:5)
-          at Test.bound [as _cb] (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:99:32)
-          at Test.run (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:117:31)
-          at Test.bound [as run] (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:99:32)
-          at Immediate.next [as _onImmediate] (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/results.js:88:19)
-          at processImmediate (node:internal/timers:464:21)
-  ...
-
-1..1
-# tests 1
-# pass  0
-# fail  1
-
-[0;35m
-****************************************************************************************************************
-uvu
-****************************************************************************************************************
-[0m
-[47m[1m[30m employee [39m[49m[22m [31m✘ [39m[31m  (0 / 1)
-[39m
-  [1m[41m FAIL [22m[49m[31m[47m[1m employee [49m[22m[39m [2m"[22m[31m[1mlarge object diff[39m[22m[2m"[22m
-    Expected values to be deeply equal:[3m[2m  (equal)[23m[22m
-
-        [90m··{[39m
-        [90m··[2m·[22m[2m·[22m"turn":[2m·[22m{[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m"count":[2m·[22m1,[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m"player":[2m·[22m"within(1,[2m·[22m4)",[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m"phase":[2m·[22m"draw"[39m
-        [90m··[2m·[22m[2m·[22m},[39m
-        [90m··[2m·[22m[2m·[22m"drawPile":[2m·[22m"length(42)",[39m
-        [90m··[2m·[22m[2m·[22m"discardPile":[2m·[22m[],[39m
-        [90m··[2m·[22m[2m·[22m"teams":[2m·[22m[[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m{[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"players":[2m·[22m[[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m{[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"name":[2m·[22m"Player[2m·[22m1",[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"cards":[2m·[22m"length(11)",[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"lastDraw":[2m·[22mnull[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m},[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m{[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"name":[2m·[22m"Player[2m·[22m2",[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"cards":[2m·[22m"length(11)",[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"lastDraw":[2m·[22mnull[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m}[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m],[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"reservePile":[2m·[22m"length(11)",[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"board":[2m·[22m[][39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m},[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m{[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"players":[2m·[22m[[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m{[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"name":[2m·[22m"Player[2m·[22m3",[39m
-        [31m[4m[2m[3mActual:[22m[23m[39m[24m
-        [31m--[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"cards":[2m·[22m"length(11)"[39m
-        [32m[4m[2m[3mExpected:[22m[23m[39m[24m
-        [32m++[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"cards":[2m·[22m"length(11)",[39m
-        [32m++[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"lastDraw":[2m·[22mnull[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m},[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m{[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"name":[2m·[22m"Player[2m·[22m4",[39m
-        [31m[4m[2m[3mActual:[22m[23m[39m[24m
-        [31m--[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"cards":[2m·[22m"length(11)"[39m
-        [32m[4m[2m[3mExpected:[22m[23m[39m[24m
-        [32m++[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"cards":[2m·[22m"length(11)",[39m
-        [32m++[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"lastDraw":[2m·[22mnull[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m}[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m],[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"reservePile":[2m·[22m"length(11)",[39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m[2m·[22m"board":[2m·[22m[][39m
-        [90m··[2m·[22m[2m·[22m[2m·[22m[2m·[22m}[39m
-        [90m··[2m·[22m[2m·[22m][39m
-        [90m··}[39m
-        [90m
-    at assert (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/uvu/assert/index.js:33:8)
-    at equal (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/uvu/assert/index.js:45:2)
-    at Object.handler (/home/ddv/dev/projects/comparing-testing-libraries/test/uvuTest.js:34:5)
-    at Number.runner (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/uvu/dist/index.js:77:16)
-    at Timeout.exec [as _onTimeout] (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/uvu/dist/index.js:138:39)[39m
-
-
-
-  Total:     1[31m
-  Passed:    0[39m
-  Skipped:   0
-  Duration:  3.97ms
-
-[0;35m
-****************************************************************************************************************
-zora
-****************************************************************************************************************
-[0m
-TAP version 13
-# large object diff
-not ok 1 - should be equivalent
-  ---
-    actual: {"turn":{"count":1,"player":"within(1, 4)","phase":"draw"},"drawPile":"length(42)","discardPile":[],"teams":[{"players":[{"name":"Player 1","cards":"length(11)","lastDraw":null},{"name":"Player 2","cards":"length(11)","lastDraw":null}],"reservePile":"length(11)","board":[]},{"players":[{"name":"Player 3","cards":"length(11)"},{"name":"Player 4","cards":"length(11)"}],"reservePile":"length(11)","board":[]}]}
-    expected: {"turn":{"count":1,"player":"within(1, 4)","phase":"draw"},"drawPile":"length(42)","discardPile":[],"teams":[{"players":[{"name":"Player 1","cards":"length(11)","lastDraw":null},{"name":"Player 2","cards":"length(11)","lastDraw":null}],"reservePile":"length(11)","board":[]},{"players":[{"name":"Player 3","cards":"length(11)","lastDraw":null},{"name":"Player 4","cards":"length(11)","lastDraw":null}],"reservePile":"length(11)","board":[]}]}
-    operator: "equal"
-    at: " /home/ddv/dev/projects/comparing-testing-libraries/test/zoraTest.js:32:5"
-  ...
-
-1..1
-# tests 1
-# pass  0
-# fail  1
-# skip  0
-[0;35m
-****************************************************************************************************************
-baretest
-****************************************************************************************************************
-[0m
-[36mMy app [39m[31m
-
-! large object diff 
-
-[39m[33mAssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
-[39m[90m
-[32m+ actual[39m [31m- expected[39m [34m...[39m Lines skipped
-
-  {
-    discardPile: [],
-[34m...[39m
-          {
-            cards: 'length(11)',
-[32m+[39m           name: 'Player 3'
-[32m+[39m         },
-[32m+[39m         {
-[32m+[39m           cards: 'length(11)',
-[31m-[39m           lastDraw: null,
-[31m-[39m           name: 'Player 3'
-[31m-[39m         },
-[31m-[39m         {
-[31m-[39m           cards: 'length(11)',
-[31m-[39m           lastDraw: null,
-            name: 'Player 4'
-[34m...[39m
-      player: 'within(1, 4)'
-    }
-  }
-    at Object.fn (/home/ddv/dev/projects/comparing-testing-libraries/test/baretestTest.js:33:5)
-    at Function.self.run (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/baretest/baretest.js:31:20)
-    at /home/ddv/dev/projects/comparing-testing-libraries/test/baretestTest.js:37:16
-    at Object.<anonymous> (/home/ddv/dev/projects/comparing-testing-libraries/test/baretestTest.js:38:3)
-    at Module._compile (node:internal/modules/cjs/loader:1101:14)
-    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
-    at Module.load (node:internal/modules/cjs/loader:981:32)
-    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
-    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:79:12)
-    at node:internal/main/run_main_module:17:47[39m[0;35m
-****************************************************************************************************************
-tehanu
-****************************************************************************************************************
-[0m
-Failed: large object diff
-
-AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
-[32m+ actual[39m [31m- expected[39m [34m...[39m Lines skipped
-
-  {
-    discardPile: [],
-[34m...[39m
-          {
-            cards: 'length(11)',
-[32m+[39m           name: 'Player 3'
-[32m+[39m         },
-[32m+[39m         {
-[32m+[39m           cards: 'length(11)',
-[31m-[39m           lastDraw: null,
-[31m-[39m           name: 'Player 3'
-[31m-[39m         },
-[31m-[39m         {
-[31m-[39m           cards: 'length(11)',
-[31m-[39m           lastDraw: null,
-            name: 'Player 4'
-[34m...[39m
-      player: 'within(1, 4)'
-    }
-  }
-    at /home/ddv/dev/projects/comparing-testing-libraries/test/tehanuTest.js:33:5
-    at run2 (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tehanu/dist/index.js:45:17)
-    at async runSuite (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tehanu/dist/index.js:72:13)
-    at async run (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tehanu/dist/index.js:32:7)
-[0;35m
-****************************************************************************************************************
 best
 ****************************************************************************************************************
 [0m
@@ -604,68 +327,70 @@ AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
     at processImmediate (node:internal/timers:464:21)
 [0;35m
 ****************************************************************************************************************
-ava
+tapDiff2
 ****************************************************************************************************************
 [0m
 
-  [31m✖[39m large object diff 
-  [90m─[39m
+  [34mmedium object diff[39m
+    [31m✖[39m  [31mshould be deeply equivalent[39m at [35mTest.<anonymous> (/home/ddv/dev/projects/comparing-testing-libraries/test/tapeTest.js:32:5)[39m
+        [37m{[39m
+          "discardPile": [
+          ],
+          "drawPile": "length(42)",
+          "teams": [
+            {
+              "board": [
+              ],
+              "players": [
+                {
+                  "cards": "length(11)",
+                  "lastDraw": null,
+                  "name": "Player 1"
+                },
+                {
+                  "cards": "length(11)",
+                  "lastDraw": null,
+                  "name": "Player 2"
+                }
+              ],
+              "reservePile": "length(11)"
+            },
+            {
+              "board": [
+              ],
+              "players": [
+                {
+                  "cards": "length(11)",
+                  "[32m[7mlastDraw": null,[27m[39m
+                  "[37mname": "Player 3"[39m
+                },
+                {
+                  "cards": "length(11)",
+                  "[32m[7mlastDraw": null,[27m[39m
+                  "[37mname": "Player 4"[39m
+                }
+              ],
+              "reservePile": "length(11)"
+            }
+          ],
+          "turn": {
+            "count": 1,
+            "phase": "draw",
+            "player": "within(1, 4)"
+          }
+        }
 
-  [1mlarge object diff[22m
+[32mpassed: 0  [39m[31mfailed: 1  [39m[37mof 1 tests  [39m[2m(11ms)[22m
 
-  [90mtest/avaTest.js:32[39m
+[31m1 of 1 tests failed.[39m
 
-   [90m31:[39m     delete actual.teams[1].players[1].lastDraw;
-  [41m 32:     eq(actual, expected);                      [49m
-   [90m33:[39m });                                            
-
-  Difference:
-
-    [90m{[39m
-      discardPile: [90m[[39m[90m][39m[90m,[39m
-      drawPile: [34m'[39m[34mlength(42)[39m[34m'[39m[90m,[39m
-      teams: [90m[[39m
-        [90m{[39m
-          board: [90m[[39m[90m][39m[90m,[39m
-          players: [35mArray[39m [90m[[39m [90m…[39m [90m][39m[90m,[39m
-          reservePile: [34m'[39m[34mlength(11)[39m[34m'[39m[90m,[39m
-        [90m}[39m[90m,[39m
-        [90m{[39m
-          board: [90m[[39m[90m][39m[90m,[39m
-          players: [90m[[39m
-            [90m{[39m
-              cards: [34m'[39m[34mlength(11)[39m[34m'[39m[90m,[39m
-  [32m+[39m           lastDraw: [33mnull[39m[90m,[39m
-              name: [34m'[39m[34mPlayer 3[39m[34m'[39m[90m,[39m
-            [90m}[39m[90m,[39m
-            [90m{[39m
-              cards: [34m'[39m[34mlength(11)[39m[34m'[39m[90m,[39m
-  [32m+[39m           lastDraw: [33mnull[39m[90m,[39m
-              name: [34m'[39m[34mPlayer 4[39m[34m'[39m[90m,[39m
-            [90m}[39m[90m,[39m
-          [90m][39m[90m,[39m
-          reservePile: [34m'[39m[34mlength(11)[39m[34m'[39m[90m,[39m
-        [90m}[39m[90m,[39m
-      [90m][39m[90m,[39m
-      turn: [90m{[39m
-        count: [33m1[39m[90m,[39m
-        phase: [34m'[39m[34mdraw[39m[34m'[39m[90m,[39m
-        player: [34m'[39m[34mwithin(1, 4)[39m[34m'[39m[90m,[39m
-      [90m}[39m[90m,[39m
-    [90m}[39m
-
-  [90m› test/avaTest.js:32:5[39m
-
-  [90m─[39m
-
-  [31m1 test failed[39m
 [0;35m
 ****************************************************************************************************************
 tapArc
 ****************************************************************************************************************
 [0m
 
-[2m  [22m[4mlarge object diff[24m
+[2m  [22m[4mmedium object diff[24m
 [2m  [22m[2m  [22m[31m✖[39m [2m1)[22m [31mshould be deeply equivalent[39m
 [2m  [22m[2m  [22m[2m  [22m{
 [2m  [22m[2m  [22m[2m  [22m[2m··[22m"turn": {
@@ -719,7 +444,7 @@ tapArc
 
 [2m  [22mtotal:     1
 [31m[2m  [22mfailing:   1
-[39m[2m[2m  [22m[2m32 ms[22m
+[39m[2m[2m  [22m[2m34 ms[22m
 
 [0;35m
 ****************************************************************************************************************
@@ -727,7 +452,7 @@ tapDifflet
 ****************************************************************************************************************
 [0m
 
-  [37m[1mlarge object diff[22m[39m
+  [37m[1mmedium object diff[22m[39m
     [37m[31m[1m⨯ should be deeply equivalent[22m[37m[39m
 [37m[31m[1m[22m[37m[39m
       { turn: { count: 1, player: 'within(1, 4)', phase: 'draw' }, drawPile: 'length(42)', discardPile: [], teams: [ { players: [ { name: 'Player 1', cards: 'length(11)', lastDraw: null }, { name: 'Player 2', cards: 'length(11)', lastDraw: null } ], reservePile: 'length(11)', board: [] }, { players: [ { name: 'Player 3', cards: 'length(11)'[7m[31m,[39m[27m [7m[31mlastDraw: null [39m[27m}, { name: 'Player 4', cards: 'length(11)'[7m[31m,[39m[27m [7m[31mlastDraw: null [39m[27m} ], reservePile: 'length(11)', board: [] } ] }
@@ -735,53 +460,7 @@ tapDifflet
       [90mAt: Test.<anonymous> (/home/ddv/dev/projects/comparing-testing-libraries/test/tapeTest.js:32:5)[39m
 
 [31m[1m1 failing[22m[39m
-[31m[1m[22m[39m[32m[1m0 passing[22m[39m[90m (16ms)[39m
-
-[0;35m
-****************************************************************************************************************
-tapSpec
-****************************************************************************************************************
-[0m
-
-  [4mlarge object diff[24m
-
-
-    [31m✖ should be deeply equivalent[39m
-    [31m------------------------------[39m
-[36m      operator: deepEqual
-      expected: |-
-        { turn: { count: 1, player: 'within(1, 4)', phase: 'draw' }, drawPile: 'length(42)', discardPile: [], teams: [ { players: [ { name: 'Player 1', cards: 'length(11)', lastDraw: null }, { name: 'Player 2', cards: 'length(11)', lastDraw: null } ], reservePile: 'length(11)', board: [] }, { players: [ { name: 'Player 3', cards: 'length(11)', lastDraw: null }, { name: 'Player 4', cards: 'length(11)', lastDraw: null } ], reservePile: 'length(11)', board: [] } ] }
-      actual: |-
-        { turn: { count: 1, player: 'within(1, 4)', phase: 'draw' }, drawPile: 'length(42)', discardPile: [], teams: [ { players: [ { name: 'Player 1', cards: 'length(11)', lastDraw: null }, { name: 'Player 2', cards: 'length(11)', lastDraw: null } ], reservePile: 'length(11)', board: [] }, { players: [ { name: 'Player 3', cards: 'length(11)' }, { name: 'Player 4', cards: 'length(11)' } ], reservePile: 'length(11)', board: [] } ] }
-      at: Test.<anonymous> (/home/ddv/dev/projects/comparing-testing-libraries/test/tapeTest.js:32:5)
-      stack: |-
-  Error: should be deeply equivalent
-  at Test.assert [as _assert] (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:314:54)
-  at Test.bound [as _assert] (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:99:32)
-  at Test.tapeDeepEqual (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:555:10)
-  at bound (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:99:32)
-  at Test.<anonymous> (/home/ddv/dev/projects/comparing-testing-libraries/test/tapeTest.js:32:5)
-  at Test.bound [as _cb] (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:99:32)
-  at Test.run (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:117:31)
-  at Test.bound [as run] (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/test.js:99:32)
-  at Immediate.next [as _onImmediate] (/home/ddv/dev/projects/comparing-testing-libraries/node_modules/tape/lib/results.js:88:19)
-  at processImmediate (node:internal/timers:464:21)
-
-[39m
-
-
-  [31m[1mFailed Tests:[22m[39m There was [31m[1m1[22m[39m failure
-
-    large object diff
-
-      [31m✖[39m [31mshould be deeply equivalent[39m
-
-
-  total:     1
-  [32mpassing:   0[39m
-  [31mfailing:   1[39m
-  duration:  18ms
-
+[31m[1m[22m[39m[32m[1m0 passing[22m[39m[90m (17ms)[39m
 
 [0;35m
 ****************************************************************************************************************
@@ -789,7 +468,7 @@ tapNirvana
 ****************************************************************************************************************
 [0m
 
-  [36mlarge object diff[39m
+  [36mmedium object diff[39m
     [31m✖  should be deeply equivalent[39m
     [31m-------------------------------[39m
         [35moperator:[39m deepEqual
@@ -837,66 +516,4 @@ tapNirvana
 
 
 
-  [32mpassed: 0,[39m  [31mfailed: 1[39m  of 1 tests  [2m(13ms)[22m
-[0;35m
-****************************************************************************************************************
-zr
-****************************************************************************************************************
-[0m
-  
-  [41m[97m[1m FAIL [22m[39m[49m [1m[4m[1mlarge object diff[22m[1m[24m[22m
-  [90mat[39m:  /home/ddv/dev/projects/comparing-testing-libraries/test/zoraTest.js:32:5
-  
-  should be equivalent
-  [36m[equal][39m diff in objects:
-  [41m[97m[1m - actual [22m[39m[49m [42m[97m[1m + expected [22m[39m[49m
-
-     [90m { [39m
-     [90m   "discardPile": [], [39m
-     [90m   "drawPile": "length(42)", [39m
-     [90m   "teams": [ [39m
-     [90m     { [39m
-     [90m       "board": [], [39m
-     [90m       "players": [ [39m
-     [90m         { [39m
-     [90m           "cards": "length(11)", [39m
-     [90m           "lastDraw": null, [39m
-     [90m           "name": "Player 1" [39m
-     [90m         }, [39m
-     [90m         { [39m
-     [90m           "cards": "length(11)", [39m
-     [90m           "lastDraw": null, [39m
-     [90m           "name": "Player 2" [39m
-     [90m         } [39m
-     [90m       ], [39m
-     [90m       "reservePile": "length(11)" [39m
-     [90m     }, [39m
-     [90m     { [39m
-     [90m       "board": [], [39m
-     [90m       "players": [ [39m
-     [90m         { [39m
-     [90m           "cards": "length(11)", [39m
-  [42m[97m[1m + [22m[39m[49m           "lastDraw": null,
-     [90m           "name": "Player 3" [39m
-     [90m         }, [39m
-     [90m         { [39m
-     [90m           "cards": "length(11)", [39m
-  [42m[97m[1m + [22m[39m[49m           "lastDraw": null,
-     [90m           "name": "Player 4" [39m
-     [90m         } [39m
-     [90m       ], [39m
-     [90m       "reservePile": "length(11)" [39m
-     [90m     } [39m
-     [90m   ], [39m
-     [90m   "turn": { [39m
-     [90m     "count": 1, [39m
-     [90m     "phase": "draw", [39m
-     [90m     "player": "within(1, 4)" [39m
-     [90m   } [39m
-     [90m } [39m
-  
-  [1mTOTAL:  1[22m
-  [90m PASS:  0 [39m
-  [41m[97m[1m FAIL:  1 [22m[39m[49m
-  [90m SKIP:  0 [39m
-  
+  [32mpassed: 0,[39m  [31mfailed: 1[39m  of 1 tests  [2m(11ms)[22m

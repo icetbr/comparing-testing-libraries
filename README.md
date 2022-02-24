@@ -1,4 +1,4 @@
-## Cold start times in seconds
+## Cold start times (in seconds)
 
 | 10 restarts      |      |                 |      | 100 restarts      |      |
 |------------------|:----:|-----------------|:----:|-------------------|:----:|
@@ -25,7 +25,6 @@ Bear in mind that this is the result of 10/100 runs. So, a **Baretest** run migh
 
 Also, checkou some [stats][40].
 
-
 ### Watch mode
 My impressions based on observation. 10 means a flicker-free instant feedback
 
@@ -37,6 +36,9 @@ My impressions based on observation. 10 means a flicker-free instant feedback
 | jest     |  7 |
 | lab      |  7 |
 | ava      |  6 |
+
+### TODO
+- test overhead of many files and many tests
 
 ## Notable mentions
 Minimalist and somewhat interesting new test runners
