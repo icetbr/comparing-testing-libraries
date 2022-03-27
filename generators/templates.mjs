@@ -64,7 +64,7 @@ export default {
         const { times } = require('lodash');
         ${imports}
 
-        const deck =
+        const deck = () =>
             ['hearts', 'spades', 'clubs', 'diamonds']
                 .flatMap(suit =>
                 times(13, i =>
@@ -72,8 +72,10 @@ export default {
                 .concat({ rank: 1, suit: 'joker' }, { rank: 2, suit: 'joker' });
 
         test('large object diff', (${assertParam}) => {
-            const actual = deck;
-            const expected = [];
+            const actual = deck();
+            const expected = deck();
+            actual[10].suit = 'bad suit'
+            actual[30].suit = 'bad rank'
             ${assertion}\
             ${endTest}
         });

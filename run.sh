@@ -31,7 +31,7 @@ largeDiffErrorsReport() { genLargeTests; _doReport $1 $2 "largeDiffErrors" ""; }
 
 # generates assertion error reports in out/*.ansi
 diffErrorsReport() {
-  libs=(jest ava mocha lab pta best)
+  libs=(jest ava mocha pta best)
   tapLibs=(tapDiff2 tapArc tapDifflet tapNirvana)
 
   smallDiffErrorsReport libs tapLibs
