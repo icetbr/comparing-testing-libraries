@@ -31,7 +31,7 @@
     "mockdate": "^3.0.5",
     "mongodb": "^4.3.1",
     "mongodb-memory-server": "^8.2.0",
-    "nodemon": "^2.0.15",
+    "nodemon": "^2.0.20",
     "onchange": "^7.1.0",
     "pta": "^1.0.2",
     "should": "^13.2.3",
