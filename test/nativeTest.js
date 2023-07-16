@@ -1,9 +1,6 @@
-const test = require('tehanu')('');
-const { deepStrictEqual: eq } = require('assert/strict');
-const employee = require('../src/employee');
-// const { equal } = require('tehanu-teas');
-
-// test('employee', async t => {
+import employee from '../src/employee.js';
+import { test } from 'node:test';
+import { deepStrictEqual as eq } from 'node:assert';
 
 test('insert saves the data to the database', async () => {
     const data = { name: 'John', email: 'john@test.com', description: 'average height' };
@@ -15,5 +12,3 @@ test('insert saves the data to the database', async () => {
     eq(actual, expected);
     await employee.removeAll();
 });
-
-// });

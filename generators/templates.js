@@ -3,7 +3,7 @@ import dedent from 'dedent-js';
 
 export default {
     baseTemplate: ({ imports = '', assertParam = '', assertion = 'eq(actual, expected);', runner = '', endTest = '' }) => dedent`
-        const employee = require('../src/employee');
+        import employee from '../src/employee.js';
         ${imports}
 
         test('insert saves the data to the database', async (${assertParam}) => {

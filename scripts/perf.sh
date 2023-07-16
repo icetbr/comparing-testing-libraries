@@ -1,4 +1,4 @@
-perfReport() {
+runPerfReport() {
   libs=$1
   fastestLibs=$2
   outputName="out/perfResults.txt"
@@ -21,11 +21,11 @@ perfReport() {
   echo "----------------------" >> $outputName
   echo "FASTEST LIBS 100 times" >> $outputName
 
-  for lib in "${fastestLibs[@]}"
+  for lib2 in "${fastestLibs[@]}"
   do
     echo "" >> $outputName
-    echo "${lib}" >> $outputName
-    { 100Times $lib; } 2>&1 | grep real >> $outputName
+    echo "${lib2}" >> $outputName
+    { 100Times $lib2; } 2>&1 | grep real >> $outputName
     sleep 1
   done
 }

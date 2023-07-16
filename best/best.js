@@ -1,8 +1,8 @@
-const { deepStrictEqual: eq } = require('assert/strict');
+export { deepStrictEqual as eq } from 'node:assert';
 
 let tests = []
 
-exports.test = (name, fn) => {
+export const test = (name, fn) => {
     tests.push({ name, fn })
 }
 
@@ -19,5 +19,3 @@ async function run() {
 }
 
 setImmediate(run)
-
-exports.eq = eq

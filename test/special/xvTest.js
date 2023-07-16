@@ -1,8 +1,7 @@
-const { test, eq } = require('../best/best.js');
-const employee = require('../src/employee');
+import employee from '../../src/employee.js';
+import { deepStrictEqual as eq } from 'node:assert';
 
-
-test('insert saves the data to the database', async () => {
+export async function testInsertSavesTheDataToTheDatabase() {
   const data = { name: 'John', email: 'john@test.com', description: 'average height' };
   await employee.insert(data);
 
@@ -11,4 +10,8 @@ test('insert saves the data to the database', async () => {
   const expected = process.env.mode === 'equalError' ? [{ ...data, name: 'John1' }] : [data];
   eq(actual, expected);
   await employee.removeAll();
-});
+};
+
+// export function testAdd() {
+//   assert.equal(1 + 3, 3)
+// }

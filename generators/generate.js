@@ -1,6 +1,6 @@
 import { writeFileSync, readdirSync, rmSync, lstatSync } from 'fs';
-import libs from './libs.mjs';
-import templates from './templates.mjs';
+import libs from './libs.js';
+import templates from './templates.js';
 
 // delete all files from ./test
 readdirSync('test/').filter(f => lstatSync(`test/${f}`).isFile()).forEach(f => rmSync(`test/${f}`));

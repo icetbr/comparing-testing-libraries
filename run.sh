@@ -9,20 +9,22 @@ source $(dirname $0)/scripts/diffErrors.sh
 100Times() { time for i in {1..100}; do eval ${!1}; done;}
 
 # replaces test/* with simple tests
-genBaseTests() { template=baseTemplate node generators/generate.mjs; }
+genBaseTests() { template=baseTemplate node generators/generate.js; }
 
 # replaces test/* with tests causing an error on an object of medium size
-genMediumTests() { template=mediumDiffErrorTemplate node generators/generate.mjs; }
+genMediumTests() { template=mediumDiffErrorTemplate node generators/generate.js; }
 
 # replaces test/* with tests causing an error on an object of large size
-genLargeTests() { template=largeDiffErrorTemplate node generators/generate.mjs; }
+genLargeTests() { template=largeDiffErrorTemplate node generators/generate.js; }
 
 # generates an performance report in out/perfResults.txt
 perfReport() {
-  libs=(jest ava tap mocha lab pta tape tapeReport zoraReport uvu xv zora baretest tehanu best notest)
-  fastestLibs=(zoraReport uvu zora xv baretest tehanu best notest)
+  # libs=(notest best tehanu baretest zora xv native uvu zoraReport tapeReport tape pta mocha lab tap ava jest vitest)
+  libs=(vitest)
+  # fastestLibs=(notest best tehanu baretest zora xv native uvu zoraReport)
+  fastestLibs=(notest)
 
-  perfReport "${libs[@]}" "${fastestLibs[@]}"
+  runPerfReport "${libs[@]}" "${fastestLibs[@]}"
 }
 
 smallDiffErrorsReport() { genBaseTests; _doReport $1 $2 "smallDiffErrors" "mode=equalError"; }

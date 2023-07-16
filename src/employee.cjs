@@ -1,6 +1,6 @@
 let db = [];
 
-export default {
+module.exports = {
 
   async insert(data) {
     if (process.env.mode === 'exception') throw new Error('Testing');

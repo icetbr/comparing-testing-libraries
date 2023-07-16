@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   bail: 1,
   testEnvironment: "node",
   testRunner: "jest-circus/runner",

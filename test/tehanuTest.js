@@ -1,6 +1,7 @@
-const employee = require('../src/employee');
-const test = require('tehanu')('');
-const { deepStrictEqual: eq } = require('assert/strict');
+import employee from '../src/employee.js';
+import tehanu from 'tehanu';
+const test = tehanu('');
+import { deepStrictEqual as eq } from 'node:assert';
 
 test('insert saves the data to the database', async () => {
     const data = { name: 'John', email: 'john@test.com', description: 'average height' };
@@ -10,6 +11,6 @@ test('insert saves the data to the database', async () => {
 
     const expected = process.env.mode === 'equalError' ? [{ ...data, name: 'John1' }] : [data];
     eq(actual, expected);
-    await employee.removeAll();            
+    await employee.removeAll();
 });
 

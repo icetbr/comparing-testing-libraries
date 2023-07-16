@@ -1,5 +1,5 @@
-const employee = require('../src/employee');
-const { test } = require('tap');
+import employee from '../src/employee.js';
+import { test } from 'tap';
 
 test('insert saves the data to the database', async ({ same: eq, end }) => {
     const data = { name: 'John', email: 'john@test.com', description: 'average height' };
@@ -9,7 +9,7 @@ test('insert saves the data to the database', async ({ same: eq, end }) => {
 
     const expected = process.env.mode === 'equalError' ? [{ ...data, name: 'John1' }] : [data];
     eq(actual, expected);
-    await employee.removeAll();            
+    await employee.removeAll();
     end();
 });
 

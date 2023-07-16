@@ -1,21 +1,26 @@
-## Cold start times (in seconds)
+## Changelog highlights: updated 2023-07-15, node 20.3.1
+- all testes using ESM
+- some tests got faster (mocha, jest, ava)
+- including results of **vitest** and **native**
+- ava watch got way better, jest remained the same, vitest is amazing
 
-| 10 restarts      |      |                 |      | 100 restarts      |      |
-|------------------|:----:|-----------------|:----:|-------------------|:----:|
-| [notest][1]      | 0,27 | [tapeReport][8] | 0,81 | [notest][1]       | 2,55 |
-| [best][2]        | 0,29 | [tape][8]       | 0,84 | [best][2]         | 2,49 |
-| [tehanu][3]      | 0,31 | [pta][9]        | 1,00 | [tehanu][3]       | 2,80 |
-| [baretest][4]    | 0,34 | [lab][10]       | 1,25 | [baretest][4]     | 2,96 |
-| [zora][5]        | 0,34 | [mocha][11]     | 1,74 | [xv][6]           | 2,96 |
-| [xv][6]          | 0,38 | [tap][12]       | 2,98 | [zora][5]         | 3,22 |
-| [uvu][7]         | 0,44 | [ava][13]       | 6,13 | [uvu][7]          | 4,32 |
-| [zoraReport][5]  | 0,49 | [jest][14]      | 6,87 | [zoraReport][5]   | 4,67 |
+## Cold start times (in seconds) and a watch mode grade (0 - 10)
 
-> updated 2022-02-19
+| 10 restarts     |      |                 |      | 100 restarts    |      |   | watch        |     |
+|-----------------|:----:|-----------------|:----:|-----------------|:----:|---|--------------|-----|
+| [notest][1]     | 0,27 | [tape][8]       | 0,90 | [notest][1]     | 2,57 |   | [mocha*][11] | 10  |
+| [best][2]       | 0,30 | [tapeReport][8] | 0,97 | [best][2]       | 2,71 |   | [native][44] | 9.5 |
+| [baretest][4]   | 0,33 | [pta][9]        | 1,06 | [xv][6]         | 2,94 |   | [vitest][45] | 9   |
+| [tehanu][3]     | 0,34 | [mocha][11]     | 1,68 | [tehanu][3]     | 2,98 |   | [zora][5]    | 9   |
+| [xv][6]         | 0,34 | [lab][10]       | 1,98 | [baretest][4]   | 3,37 |   | [tape][8]    | 9   |
+| [uvu][7]        | 0,38 | [tap][12]       | 2,90 | [zora][5]       | 3,62 |   | [lab][10]    | 8   |
+| [native][44]    | 0,40 | [ava][13]       | 4,27 | [uvu][7]        | 3,66 |   | [ava][13]    | 8   |
+| [zora][5]       | 0,40 | [jest][14]      | 4,96 | [native][44]    | 3,98 |   | [jest][14]   | 7   |
+| [zoraReport][5] | 0,71 | [vitest][45]    | 8,10 | [zoraReport][5] | 8,19 |   |              |     |
 
-This is my favorite metric. While coding, I run only one test at a time. This tells how much time it takes to "refresh" my test output. This table shows the results of running `time node test/myTest.js` 10/100 times (see [perf.sh](./perf.sh))
+This table shows the results of running `time node test/myTest.js` 10/100 times (see [perf.sh](./perf.sh)). The **watch** column is how fast can a rerun get with `nodemon` or `--watch` flag. It was eyeball measured, 10 meaning a flicker-free instant feedback.
 
-I tried to be fair, but some runners have no output, this makes them faster. Also **esm** modules are a little slower (**xv** is esm only)
+Some runners have no output, this makes them faster. Also **esm** modules are a little slower (**xv** is esm only)
 
 **Best** and **Notest** are the fastest possible implementations, they are not actual libs.
 
@@ -23,24 +28,22 @@ I tried to be fair, but some runners have no output, this makes them faster. Als
 
 Bear in mind that this is the result of 10/100 runs. So, a **Baretest** run might take 33ms and Tape 80ms. Ask yourself if this will make a difference, these are very small numbers.
 
-Also, checkou some [stats][40].
+**Mocha** watch with `require`(CJS) is a perfect 10.
 
-### Watch mode
-My impressions based on observation. 10 means a flicker-free instant feedback
+<!-- **TODO**: test overhead of many files and many tests -->
 
-|          |    |
-|----------|----|
-| mocha    | 10 |
-| zora     |  9 |
-| tape     |  8 |
-| jest     |  7 |
-| lab      |  7 |
-| ava      |  6 |
 
-### TODO
-- test overhead of many files and many tests
+## Choosing a test runner
 
-## Notable mentions
+There are 3 **deal breaker** features every test runner must have:
+- **fast rerun**: write, save, see, the most essential feedback loop
+- **familiar syntax**: jest/mocha compatible, easy to switch between runners
+- **esm support**: it's JS future
+
+Nearly all runners fails the familiarity test.
+Checkout some popularity stats like number of stars, montly downloads, commit activity and others. [1][40], [2][43]
+
+### Notable mentions
 Minimalist and somewhat interesting new test runners
 - [g-test-runner][15]: zero dependency, many features, like "rerun only failed tests"
 - [natr][16]: [riteway][17] inspired
@@ -48,30 +51,25 @@ Minimalist and somewhat interesting new test runners
 - [beartest][19]: jest syntax, less features, faster
 
 
-## What I'm looking for in a testing experience
-- **fast single test run**
-  - "flicker free" watch mode, that is I hit "CTRL + S" and VScode's terminal shows my test result without even blinking
+## Additional features
+
+- **easy toggle serial/parallel tests**
+  - unit runs in parallel, integration in serial
+  - parallel !== serial, not all are trully "multi thread"
 - **pretty print string comparison diff**
-  - I use almost exclusively deep equal comparison in all of my tests
-- **async and esm support**
-- **no special syntax**
-  - it should be easy to change between testing libraries
-  - makes for a more consistent experience when reading other people code with different test frameworks
 - **clean stack traces**
   - I only need one line of stacktrace to find my error, I don't want it to be the 5th of 10 lines
 - **clear terminal before run**
 - **minimalist output**
 - **bail on error**
   - if the change I made broke hundreds of test, I don't need to see all of them
-- **easy toggle serial/parallel tests**
-  - unit run in parallel, integration in serial
+- mock, cover, snapshoot
 
 
 ## My impressions
 These are mostly nitpicking based on first impressions, they are all great libraries.
 
 ### Jest
-
 - initial configuration: hard if not using defaults
   - needed to include testEnvironment
     - huge performance cost otherwise (~80% on cold start tests)
@@ -134,7 +132,6 @@ These are mostly nitpicking based on first impressions, they are all great libra
   - [uvu](https://github.com/lukeed/uvu#benchmarks)
 - **Ava** and **Jest** have an aditional large start cost when first run
 - to test this yourself, run `./perf.sh`
-- **Vitest** is way too slow right now, it took ~20s in 120 runs
 - `bash script` over `npm scripts` because it's faster and more flexible
 - The previous version of this README posted at dev.to: [DX comparison of javascript testing libraries][41]
 
@@ -185,6 +182,9 @@ mode=jest ./run.sh mochaAssert
 
 **USE [VSCODE-ANSI][42] TO SEE THE ANSI FILES IN PREVIEW MODE**
 
+[Contributing](https://github.com/icetbr/my-projects/blob/main/CONTRIBUTING.md)\
+[License (MIT)](https://choosealicense.com/licenses/mit/)
+
 <!-- ## todo: 10k tests -->
 
 <!-- https://github.com/japa/core -->
@@ -213,3 +213,6 @@ mode=jest ./run.sh mochaAssert
 [40]: https://moiva.io/?npm=@hapi/lab+ava+baretest+jasmine+jest+mocha+tap+tape+tehanu+uvu+xv+zora
 [41]: https://dev.to/icetbr/developer-ux-comparison-of-javascript-testing-libraries-2b9n
 [42]: https://marketplace.visualstudio.com/items?itemName=iliazeus.vscode-ansi
+[43]: https://npmtrends.com/@hapi/lab-vs-ava-vs-baretest-vs-jasmine-core-vs-jest-vs-mocha-vs-tap-vs-tape-vs-tehanu-vs-uvu-vs-zora
+[44]: https://nodejs.org/api/test.html
+[45]: https://vitest.dev/
