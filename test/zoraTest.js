@@ -9,6 +9,6 @@ test('insert saves the data to the database', async ({ equal: eq }) => {
 
     const expected = process.env.mode === 'equalError' ? [{ ...data, name: 'John1' }] : [data];
     eq(actual, expected);
-    await employee.removeAll();
+    await employee.removeAll();            
 });
 
