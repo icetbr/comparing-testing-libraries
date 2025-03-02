@@ -1,7 +1,9 @@
 import employee from '../src/employee.js';
+
 import tehanu from 'tehanu';
 const test = tehanu('');
 import { deepStrictEqual as eq } from 'node:assert';
+        
 
 test('insert saves the data to the database', async () => {
     const data = { name: 'John', email: 'john@test.com', description: 'average height' };

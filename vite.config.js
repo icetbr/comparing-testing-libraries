@@ -2,8 +2,9 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
     test: {
-        // globals: true,
+        isolate: false,
+        fileParallelism: false,
         include: ['test/vitestTest.js'],
-        watch: false
-    },
+        watch: false,
+    }
 });

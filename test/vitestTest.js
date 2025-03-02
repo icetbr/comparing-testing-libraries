@@ -1,9 +1,7 @@
 import employee from '../src/employee.js';
-import { expect, it, describe } from 'vitest';
+import { expect, it, describe, test } from 'vitest';
 
-describe('employee', () => {
-
-  it('insert saves the data to the database', async () => {
+test('insert saves the data to the database', async () => {
     const data = { name: 'John', email: 'john@test.com', description: 'average height' };
     await employee.insert(data);
 
@@ -12,7 +10,5 @@ describe('employee', () => {
     const expected = process.env.mode === 'equalError' ? [{ ...data, name: 'John1' }] : [data];
     expect(actual).toEqual(expected);
     await employee.removeAll();
-  });
-
 });
 

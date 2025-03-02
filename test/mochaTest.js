@@ -9,6 +9,6 @@ test('insert saves the data to the database', async () => {
 
     const expected = process.env.mode === 'equalError' ? [{ ...data, name: 'John1' }] : [data];
     expect(actual).to.deep.equal(expected);
-    await employee.removeAll();
+    await employee.removeAll();            
 });
 

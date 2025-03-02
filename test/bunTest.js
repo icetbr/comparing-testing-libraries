@@ -1,9 +1,5 @@
 import employee from '../src/employee.js';
-
-import baretest from 'baretest';
-import { deepStrictEqual as eq } from 'node:assert';
-const test = baretest('My app');
-        
+import { test, expect } from 'bun:test';
 
 test('insert saves the data to the database', async () => {
     const data = { name: 'John', email: 'john@test.com', description: 'average height' };
@@ -12,8 +8,7 @@ test('insert saves the data to the database', async () => {
     const actual = await employee.find();
 
     const expected = process.env.mode === 'equalError' ? [{ ...data, name: 'John1' }] : [data];
-    eq(actual, expected);
-    await employee.removeAll();            
+    expect(actual).toEqual(expected);
+    await employee.removeAll();
 });
 
-await test.run();

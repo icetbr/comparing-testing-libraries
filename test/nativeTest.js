@@ -1,4 +1,5 @@
 import employee from '../src/employee.js';
+
 import { test } from 'node:test';
 import { deepStrictEqual as eq } from 'node:assert';
 
@@ -12,3 +13,4 @@ test('insert saves the data to the database', async () => {
     eq(actual, expected);
     await employee.removeAll();
 });
+

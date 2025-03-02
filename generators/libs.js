@@ -1,5 +1,4 @@
-// import dedent from '@michaelray/dedent';
-import dedent from 'dedent-js';
+import dedent from 'codedent';
 
 export default [
     {
@@ -79,14 +78,19 @@ export default [
     {
         name: 'native',
         imports: dedent`
-            const { test } = require('node:test');
-            const { deepStrictEqual:eq } = require('node:assert');
+            import { test } from 'node:test';
+            import { deepStrictEqual as eq } from 'node:assert';
         `,
         assertParam: ``,
     },
     {
         name: 'vitest',
-        imports: `import { expect, it, describe } from 'vitest';`,
+        imports: `import { expect, it, describe, test } from 'vitest';`,
+        assertion: 'expect(actual).toEqual(expected);',
+    },
+    {
+        name: 'bun',
+        imports: `import { expect, it, describe, test } from 'bun:test';`,
         assertion: 'expect(actual).toEqual(expected);',
     },
 ];
